@@ -1,0 +1,57 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+
+<div class="row" style="background: white; margin-bottom: 10px">
+
+ <span class="col-xs-10 col-sm-4 col-md-3 col-lg-2">
+
+  <img @onclick="@ShowAbout" src="/img/MiracleListLogo.jpg" />
+ </span>
+ <!--  Anzeige dieses Blocks oben nur auf großen Displays -->
+ <span class="col-xs-6 col-lg-9 col-sm-7 col-md-8 hidden-xs" style="vertical-align: middle">
+  @status
+
+
+ </span>
+ <span class="col-xs-1">
+
+  <ul class="nav navbar-nav navbar-right">
+   <li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown">
+     <span style="font-size: 2.2em" class="glyphicon glyphicon-menu-hamburger icon-primary"></span>
+    </a>
+    <ul class="dropdown-menu">
+     <li><a href="/About">Über diese App</a></li>
+     <li><a href="/Demos">MiracleList</a></li>
+    </ul>
+   </li>
+  </ul>
+ </span>
+</div>
+@Body
+
+<!-- Alternative Anzeige dieses Blocks unten auf kleinen Displays -->
+<div class="row">
+ <span class="col-xs-12 hidden-sm hidden-md hidden-lg">
+  @*<Status></Status>*@
+  @status
+ </span>
+</div>
+
+@code
+{
+ string status = "";
+
+
+ protected override async System.Threading.Tasks.Task OnInitializedAsync()
+ {
+
+ }
+
+ public void ShowAbout()
+ {
+  if (NavigationManager.Uri.ToLower().Contains("/about")) NavigationManager.NavigateTo("/");
+  else NavigationManager.NavigateTo("About");
+ }
+
+}
