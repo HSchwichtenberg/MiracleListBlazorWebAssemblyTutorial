@@ -23,6 +23,8 @@ namespace Web
   public const string ClientID = "11111111-1111-1111-1111-111111111111";
   public LoginInfo CurrentLoginInfo = null;
 
+  public string Token { get { return CurrentLoginInfo?.Token; } }
+
   public async Task<bool> Login()
   {
    var l = new LoginInfo() { Username = AuthenticationManager.DebugUser, Password = AuthenticationManager.DebugPassword, ClientID = AuthenticationManager.ClientID };
