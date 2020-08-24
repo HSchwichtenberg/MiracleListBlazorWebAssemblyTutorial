@@ -49,6 +49,7 @@ namespace Web
 
    #region DI Serverkommunikation
    services.AddScoped<MiracleListAPI.MiracleListProxy>();
+   services.AddScoped<AuthenticationManager>();
    #endregion
 
    #region DI JavaScript-Interoperabilität
