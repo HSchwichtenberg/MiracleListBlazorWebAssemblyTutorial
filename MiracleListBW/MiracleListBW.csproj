@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+ <!--notwendige Frameworkeinstellungen-->
+ <PropertyGroup>
+  <TargetFramework>net5.0</TargetFramework>
+  <RuntimeIdentifier>browser-wasm</RuntimeIdentifier>
+  <UseBlazorWebAssembly>true</UseBlazorWebAssembly>
+ </PropertyGroup>
+
+ <!--optionale Anwendungseinstellungen-->
+ <PropertyGroup>
+  <Description>Blazor WebAssembly-Version des MiracleList Web Frontends</Description>
+  <Copyright>Dr. Holger Schwichtenberg, www.IT-Visions.de 2018-2020</Copyright>
+  <Authors>Dr. Holger Schwichtenberg, www.IT-Visions.de</Authors>
+  <Company>www.IT-Visions.de</Company>
+  <Product>MiracleList</Product>
+  <Version>0.1.0.0</Version>
+  <RootNamespace>Web</RootNamespace>
+  <StartupObject>Web.Program</StartupObject>
+  <AssemblyVersion>0.1.0.0</AssemblyVersion>
+  <FileVersion>0.1.0.0</FileVersion>
+ </PropertyGroup>
+
+ <!--Unterdrückung einiger Warnungen-->
+ <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <NoWarn>1701;1702;1998</NoWarn>
+ </PropertyGroup>
+
+ <ItemGroup>
+  <!--Standardreferenzen für BW-->
+  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.0-preview.8.20414.8" />
+  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.0-preview.8.20414.8" PrivateAssets="all" />
+  <PackageReference Include="System.Net.Http.Json" Version="5.0.0-preview.8.20407.11" />
+ </ItemGroup>
+
+ <ItemGroup>
+   <ProjectReference Include="..\BO\BO.csproj" />
+   <ProjectReference Include="..\MiracleListAPI_Proxy\MiracleListAPI_Proxy.csproj" />
+ </ItemGroup>
+</Project>
