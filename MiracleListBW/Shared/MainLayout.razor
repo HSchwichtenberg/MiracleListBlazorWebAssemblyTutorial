@@ -2,16 +2,12 @@
 @inject NavigationManager NavigationManager
 
 <div class="row" style="background: white; margin-bottom: 10px">
-
  <span class="col-xs-10 col-sm-4 col-md-3 col-lg-2">
-
   <img @onclick="@ShowAbout" src="/img/MiracleListLogo.jpg" />
  </span>
  <!--  Anzeige dieses Blocks oben nur auf großen Displays -->
  <span class="col-xs-6 col-lg-9 col-sm-7 col-md-8 hidden-xs" style="vertical-align: middle">
   @status
-
-
  </span>
  <span class="col-xs-1">
 
@@ -42,7 +38,6 @@
 {
  string status = "";
 
-
  protected override async System.Threading.Tasks.Task OnInitializedAsync()
  {
 
@@ -53,5 +48,4 @@
   if (NavigationManager.Uri.ToLower().Contains("/about")) NavigationManager.NavigateTo("/");
   else NavigationManager.NavigateTo("About");
  }
-
 }
