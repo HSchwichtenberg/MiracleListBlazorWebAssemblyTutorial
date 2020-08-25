@@ -1,10 +1,21 @@
-﻿
+﻿@inject NavigationManager NavigationManager
+<CascadingAuthenticationState>
  <Router AppAssembly="typeof(Program).Assembly">
   <Found Context="routeData">
-   <RouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)" />
+   @*alt: <RouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)" />*@
+
+   <AuthorizeRouteView RouteData="@routeData"
+                       DefaultLayout="@typeof(MainLayout)">
+    <NotAuthorized>
+     Sie sind nicht angemeldet und können den Inhalt dieser Seite daher nicht sehen. Bitte melden Sie sich an in der <a href="/Login">Anmeldenmaske</a>
+     @{ 
+      NavigationManager.NavigateTo("/");
+     }
+    </NotAuthorized>
+   </AuthorizeRouteView>
   </Found>
   <NotFound>
    <h1>Page not found</h1>
   </NotFound>
  </Router>
-
+</CascadingAuthenticationState>
