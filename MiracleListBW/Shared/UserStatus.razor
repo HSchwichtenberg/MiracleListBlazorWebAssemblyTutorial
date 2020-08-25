@@ -1,0 +1,8 @@
+﻿<AuthorizeView>
+ <Authorized>
+  <h4 class="loginstatus">User: @context.User.Identity.Name <a href="/logout">Logout</a></h4>
+ </Authorized>
+ <NotAuthorized>
+  <h4 class="loginstatus">You're not signed in!</h4>
+ </NotAuthorized>
+</AuthorizeView>

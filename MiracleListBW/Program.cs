@@ -1,4 +1,5 @@
 ﻿
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 using Microsoft.Extensions.Configuration;
@@ -48,8 +49,10 @@ namespace Web
    #endregion
 
    #region DI Serverkommunikation
-   services.AddScoped<MiracleListAPI.MiracleListProxy>();
-   services.AddScoped<AuthenticationManager>();
+   services.AddSingleton<MiracleListAPI.MiracleListProxy>();
+   //services.AddSingleton<AuthenticationManager>();
+   services.AddSingleton<AuthenticationStateProvider, AuthenticationManager>();
+   services.AddAuthorizationCore();
    #endregion
 
    #region DI JavaScript-Interoperabilität

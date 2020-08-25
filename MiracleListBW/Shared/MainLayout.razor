@@ -7,7 +7,7 @@
  </span>
  <!--  Anzeige dieses Blocks oben nur auf großen Displays -->
  <span class="col-xs-6 col-lg-9 col-sm-7 col-md-8 hidden-xs" style="vertical-align: middle">
-  @status
+  <UserStatus></UserStatus>
  </span>
  <span class="col-xs-1">
 
@@ -29,23 +29,16 @@
 <!-- Alternative Anzeige dieses Blocks unten auf kleinen Displays -->
 <div class="row">
  <span class="col-xs-12 hidden-sm hidden-md hidden-lg">
-  @*<Status></Status>*@
-  @status
+  <UserStatus></UserStatus>
  </span>
 </div>
 
 @code
 {
- string status = "";
-
- protected override async System.Threading.Tasks.Task OnInitializedAsync()
- {
-
- }
 
  public void ShowAbout()
  {
-  if (NavigationManager.Uri.ToLower().Contains("/about")) NavigationManager.NavigateTo("/");
-  else NavigationManager.NavigateTo("About");
+
+  NavigationManager.NavigateTo("/");
  }
 }
