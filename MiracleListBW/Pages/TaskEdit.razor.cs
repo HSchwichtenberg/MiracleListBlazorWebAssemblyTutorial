@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 
 namespace Web.Pages
 {
@@ -17,8 +18,8 @@ namespace Web.Pages
   [Inject]
   MiracleListAPI.MiracleListProxy proxy { get; set; } = null;
 
-  [Inject]
-  AuthenticationManager am { get; set; }
+  [Inject] AuthenticationStateProvider asp { get; set; } = null;
+  AuthenticationManager am { get { return (asp as AuthenticationManager); } }
 
   protected override async System.Threading.Tasks.Task OnInitializedAsync()
   {

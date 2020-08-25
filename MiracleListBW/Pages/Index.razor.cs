@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
 using MiracleListAPI;
@@ -11,12 +12,15 @@ namespace Web.Pages
 {
  public partial class Index
  {
-  [Inject]
-  AuthenticationManager am { get; set; }
+  [Inject] AuthenticationStateProvider asp { get; set; } = null;
+  AuthenticationManager am { get { return (asp as AuthenticationManager); } }
   [Inject]
   MiracleListAPI.MiracleListProxy proxy { get; set; }
   [Inject]
   IJSRuntime js { get; set; }
+  [Inject] public NavigationManager NavigationManager { get; set; }
+  [CascadingParameter] 
+  Task<AuthenticationState> authenticationStateTask { get; set; }
 
   #region Einfache Properties zur Datenbindung
   List<BO.Category> categorySet { get; set; }
@@ -34,11 +38,9 @@ namespace Web.Pages
   /// <returns></returns>
   protected override async Task OnInitializedAsync()
   {
-   // TODO: Muss später im Anmeldebildschirm erfolgen
-   if (await am.Login())
-   {
-    await ShowCategorySet();
-   }
+   var user = (await authenticationStateTask).User;
+   if (!user.Identity.IsAuthenticated) { this.NavigationManager.NavigateTo("/"); return; }
+   await ShowCategorySet();
   }
 
   public async Task ShowCategorySet()
