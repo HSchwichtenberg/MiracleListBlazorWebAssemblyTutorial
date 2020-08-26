@@ -26,8 +26,10 @@ body {
 }
 
 .MLcheckbox {
- width: 30px;
- height: 30px;
+ -moz-transform: scale(2);
+ width: 25px;
+ height: 25px;
+ padding: 10px;
  display: inline;
 }
 

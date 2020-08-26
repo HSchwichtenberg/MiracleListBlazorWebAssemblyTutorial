@@ -1,11 +1,14 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Http.Connections;
+using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.JSInterop;
 using MiracleListAPI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Web.Pages
@@ -21,6 +24,11 @@ namespace Web.Pages
   [Inject] public NavigationManager NavigationManager { get; set; }
   [CascadingParameter] 
   Task<AuthenticationState> authenticationStateTask { get; set; }
+
+  #region Infrastruktur-Objekte
+  HubConnection hubConnection;
+  ClaimsPrincipal user;
+  #endregion
 
   #region Einfache Properties zur Datenbindung
   List<BO.Category> categorySet { get; set; }
@@ -38,9 +46,36 @@ namespace Web.Pages
   /// <returns></returns>
   protected override async Task OnInitializedAsync()
   {
-   var user = (await authenticationStateTask).User;
+   Console.WriteLine(System.Threading.Thread.CurrentThread.ManagedThreadId);
+   user = (await authenticationStateTask).User;
    if (!user.Identity.IsAuthenticated) { this.NavigationManager.NavigateTo("/"); return; }
    await ShowCategorySet();
+
+   var hubURL = new Uri(new Uri(proxy.BaseUrl), "MLHub");
+   Console.WriteLine("SignalR: Connect to " + hubURL.ToString());
+   hubConnection = new HubConnectionBuilder()
+       .WithUrl(hubURL)
+       .Build();
+
+   // --- eingehende Nachricht
+   hubConnection.On<string>("CategoryListUpdate", async (connectionID) =>
+   {
+    Console.WriteLine($"SignalR-CategoryListUpdate: {connectionID} (Thread #{System.Threading.Thread.CurrentThread.ManagedThreadId})");
+    await ShowCategorySet();
+    StateHasChanged();
+   });
+   // --- eingehende Nachricht
+   hubConnection.On<string, int>("TaskListUpdate", async (connectionID, categoryID) =>
+   {
+    Console.WriteLine($"SignalR-TaskListUpdate: {connectionID}/{categoryID} (Thread #{System.Threading.Thread.CurrentThread.ManagedThreadId})");
+    if (categoryID == this.category.CategoryID) await ShowTaskSet(this.category);
+    StateHasChanged();
+   });
+   // Verbindung zum SignalR-Hub starten
+   await hubConnection.StartAsync();
+   // Registrieren für Events
+   await hubConnection.SendAsync("Register", user.Identity.Name);
+
   }
 
   public async Task ShowCategorySet()
@@ -72,6 +107,8 @@ namespace Web.Pages
      await ShowCategorySet();
      await ShowTaskSet(newcategory);
      this.newCategoryName = "";
+     // SignalR-Nachricht senden
+     await hubConnection.SendAsync("SendCategoryListUpdate", user.Identity.Name);
     }
    }
   }
@@ -99,15 +136,20 @@ namespace Web.Pages
      await proxy.CreateTaskAsync(t, am.Token);
      await ShowTaskSet(this.category);
      this.newTaskTitle = "";
+     // SignalR-Nachricht senden
+     await hubConnection.SendAsync("SendTaskListUpdate", user.Identity.Name, this.category.CategoryID);
     }
    }
   }
+
 
   public async Task ReloadTasks(int taskID)
   {
    // reload all tasks in current category
    //await ShowTaskSet(this.category);
    this.task = null;
+   // SignalR-Nachricht senden
+   await hubConnection.SendAsync("SendTaskListUpdate", user.Identity.Name, this.category.CategoryID);
   }
 
   /// <summary>
@@ -123,6 +165,8 @@ namespace Web.Pages
    await ShowTaskSet(this.category);
    // aktuelle Aufgabe zurücksetzen
    this.task = null;
+   // SignalR-Nachricht senden
+   await hubConnection.SendAsync("SendTaskListUpdate", user.Identity.Name, this.category.CategoryID);
   }
 
   /// <summary>
@@ -139,6 +183,8 @@ namespace Web.Pages
    await ShowCategorySet();
    // aktuelle Category zurücksetzen
    this.category = null;
+   // SignalR-Nachricht senden
+   await hubConnection.SendAsync("SendCategoryListUpdate", user.Identity.Name);
   }
  } // end class Index
 }
