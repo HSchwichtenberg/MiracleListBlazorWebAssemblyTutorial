@@ -21,6 +21,10 @@
   <FileVersion>0.4.0.0</FileVersion>
  </PropertyGroup>
 
+ <ItemGroup>
+  <BlazorWebAssemblyLazyLoad Include="MiracleListRCL" />
+ </ItemGroup>
+
  <!--Unterdrückung einiger Warnungen-->
  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
   <NoWarn>1701;1702;1998</NoWarn>
@@ -28,15 +32,16 @@
 
  <ItemGroup>
   <!--Standardreferenzen für BW-->
-  <PackageReference Include="Blazored.LocalStorage" Version="3.0.0" />
   <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.0-preview.8.20414.8" />
   <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.0-preview.8.20414.8" PrivateAssets="all" />
   <PackageReference Include="System.Net.Http.Json" Version="5.0.0-preview.8.20407.11" />
-  <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="5.0.0-preview.8.20407.11" />
+  <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="5.0.0-preview.8.20414.8" />
  </ItemGroup>
 
  <ItemGroup>
   <ProjectReference Include="..\BO\BO.csproj" />
   <ProjectReference Include="..\MiracleListAPI_Proxy\MiracleListAPI_Proxy.csproj" />
+  <ProjectReference Include="..\MiracleListRCL\MiracleListRCL.csproj" />
+  <ProjectReference Include="..\MiracleListUtil\MiracleListUtil.csproj" />
  </ItemGroup>
 </Project>

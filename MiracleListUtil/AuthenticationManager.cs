@@ -30,7 +30,6 @@ namespace Web
   public async Task<bool> CheckLocalTokenValid()
   {
    bool result = false;
-
    string token = await localStorage.GetItemAsync<string>(STORAGE_KEY);
    if (!String.IsNullOrEmpty(token))
    {
