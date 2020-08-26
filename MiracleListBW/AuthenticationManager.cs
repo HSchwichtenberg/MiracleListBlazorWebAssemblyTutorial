@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 using System;
+using MiracleListAPI;
 using System.Security.Claims;   // NEU in Teil 3
 using Microsoft.AspNetCore.Components.Authorization;   // NEU in Teil 3
-using MiracleListAPI;
-using Microsoft.Extensions.Primitives;
 
 namespace Web
 {
@@ -19,16 +18,15 @@ namespace Web
   {
    this.proxy = proxy;
    this.localStorage = localStorage;
-   proxy.BaseUrl = "https://miraclelistbackend-test.azurewebsites.net/";
    Console.WriteLine("Backend: " + proxy.BaseUrl);
   }
 
   public const string ClientID = "11111111-1111-1111-1111-111111111111";
-  public LoginInfo CurrentLoginInfo = null;
   const string STORAGE_KEY = "TempBackendToken";
-
+  public LoginInfo CurrentLoginInfo = null;
   public string Token { get { return CurrentLoginInfo?.Token; } }
 
+  // NEU in Teil 4
   public async Task<bool> CheckLocalTokenValid()
   {
    bool result = false;

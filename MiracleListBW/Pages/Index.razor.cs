@@ -39,7 +39,7 @@ namespace Web.Pages
   protected override async Task OnInitializedAsync()
   {
    var user = (await authenticationStateTask).User;
-   if (!user.Identity.IsAuthenticated) this.NavigationManager.NavigateTo("/");
+   if (!user.Identity.IsAuthenticated) { this.NavigationManager.NavigateTo("/"); return; }
    await ShowCategorySet();
   }
 
