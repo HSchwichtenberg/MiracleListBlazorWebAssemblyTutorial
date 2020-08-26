@@ -8,6 +8,7 @@ namespace Web
  {
   [Inject] public NavigationManager NavigationManager { get; set; }
   [Inject] AuthenticationStateProvider asp { get; set; } = null;
+  [Inject] public Blazored.LocalStorage.ILocalStorageService storage { get; set; } = null;
 
   #region Properties für Datenbinding
   public string Username { get; set; }
@@ -21,6 +22,11 @@ namespace Web
    if (this.NavigationManager.Uri.ToLower().Contains("/logout"))
    {
     await ((AuthenticationManager)asp).Logout();
+   }
+
+   if (await (asp as AuthenticationManager).CheckLocalTokenValid())
+   {
+    this.NavigationManager.NavigateTo("/main");
    }
   }
 

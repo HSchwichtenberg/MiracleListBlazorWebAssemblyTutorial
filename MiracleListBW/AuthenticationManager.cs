@@ -3,6 +3,7 @@ using System;
 using System.Security.Claims;   // NEU in Teil 3
 using Microsoft.AspNetCore.Components.Authorization;   // NEU in Teil 3
 using MiracleListAPI;
+using Microsoft.Extensions.Primitives;
 
 namespace Web
 {
@@ -12,16 +13,50 @@ namespace Web
  public class AuthenticationManager : AuthenticationStateProvider // Vererbung NEU in Teil 3
  {
   MiracleListAPI.MiracleListProxy proxy { get; set; }
+  Blazored.LocalStorage.ILocalStorageService localStorage { get; set; }
 
-  public AuthenticationManager(MiracleListAPI.MiracleListProxy proxy)
+  public AuthenticationManager(MiracleListAPI.MiracleListProxy proxy, Blazored.LocalStorage.ILocalStorageService localStorage )
   {
    this.proxy = proxy;
+   this.localStorage = localStorage;
+   Console.WriteLine("Backend: " + proxy.BaseUrl);
   }
 
   public const string ClientID = "11111111-1111-1111-1111-111111111111";
   public LoginInfo CurrentLoginInfo = null;
+  const string STORAG_KEY = "TempBackendToken";
 
   public string Token { get { return CurrentLoginInfo?.Token; } }
+
+  public async Task<bool> CheckLocalTokenValid()
+  {
+   bool result = false;
+   string token = await localStorage.GetItemAsync<string>(STORAG_KEY);
+   if (!String.IsNullOrEmpty(token))
+   {
+    // Es gibt ein Token im Local Storage. Nachfrage beim Server, ob noch gültig.
+    Console.WriteLine("Checking local token " + token  + "...");
+    var l = new LoginInfo() {Token=token, ClientID = AuthenticationManager.ClientID };
+    this.CurrentLoginInfo = await proxy.LoginAsync(l);
+    if (this.CurrentLoginInfo == null || String.IsNullOrEmpty(CurrentLoginInfo.Token))
+    { // Token ungültig!
+     Console.WriteLine($"{nameof(CheckLocalTokenValid)}: Token not valid: {CurrentLoginInfo?.Message}!");
+     CurrentLoginInfo = null;
+    }
+    else
+    { // Token gültig!
+     Console.WriteLine($"{nameof(CheckLocalTokenValid)}: Found valid Token = : {CurrentLoginInfo.Token}");
+     Notify();
+     result = true;
+    }
+   }
+   else
+   {
+    Console.WriteLine($"{nameof(CheckLocalTokenValid)}: No local token!");
+   }
+   Notify();
+   return result;
+  }
 
   /// <summary>
   /// Login to be called by Razor Component Login.razor
@@ -41,6 +76,7 @@ namespace Web
     else
     {
      result = true;
+     await localStorage.SetItemAsync<string>(STORAG_KEY, this.CurrentLoginInfo.Token);
      Console.WriteLine("Anmeldung erfolgreich: " + this.CurrentLoginInfo.Username);
     }
    }

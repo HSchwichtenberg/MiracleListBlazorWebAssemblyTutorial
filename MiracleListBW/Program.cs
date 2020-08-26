@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Components.Authorization;
+﻿using Blazored.LocalStorage;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -19,7 +20,7 @@ namespace Web
    builder.RootComponents.Add<App>("app");
    AddServices(builder);
 
-   Console.WriteLine("Environment: " + builder.HostEnvironment.Environment);
+   Console.WriteLine("Environment: " + builder.HostEnvironment.Environment );
    Console.WriteLine("BaseAddress: " + builder.HostEnvironment.BaseAddress);
    Console.WriteLine("RootComponent: " + builder.RootComponents[0].Selector);
 
@@ -33,10 +34,14 @@ namespace Web
    services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
    #region DI Serverkommunikation
-   services.AddSingleton<MiracleListAPI.MiracleListProxy>();
+   services.AddScoped<MiracleListAPI.MiracleListProxy>();
    //services.AddSingleton<AuthenticationManager>();
-   services.AddSingleton<AuthenticationStateProvider, AuthenticationManager>();
+   services.AddScoped<AuthenticationStateProvider, AuthenticationManager>();
    services.AddAuthorizationCore();
+   #endregion
+
+   #region Teil 4
+   services.AddBlazoredLocalStorage();
    #endregion
   }
  }
