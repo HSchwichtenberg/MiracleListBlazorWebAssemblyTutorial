@@ -41,8 +41,6 @@ namespace Web.Pages
    var user = (await authenticationStateTask).User;
    if (!user.Identity.IsAuthenticated) this.NavigationManager.NavigateTo("/");
    await ShowCategorySet();
-   //Console.WriteLine("benutzer: " + user.Identity.AuthenticationType + "/" + user.Identity.IsAuthenticated+ " / " + user.Identity.Name);
-
   }
 
   public async Task ShowCategorySet()
