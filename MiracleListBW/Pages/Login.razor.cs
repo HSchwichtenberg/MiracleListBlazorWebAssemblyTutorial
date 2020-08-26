@@ -21,7 +21,7 @@ namespace Web
    // Reaktion auf diese URL
    if (this.NavigationManager.Uri.ToLower().Contains("/logout"))
    {
-    await ((AuthenticationManager)asp).Logout();
+    await ((AuthenticationManager)asp).Logout(); return;
    }
 
    if (await (asp as AuthenticationManager).CheckLocalTokenValid())

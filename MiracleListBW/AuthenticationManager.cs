@@ -19,40 +19,42 @@ namespace Web
   {
    this.proxy = proxy;
    this.localStorage = localStorage;
+   proxy.BaseUrl = "https://miraclelistbackend-test.azurewebsites.net/";
    Console.WriteLine("Backend: " + proxy.BaseUrl);
   }
 
   public const string ClientID = "11111111-1111-1111-1111-111111111111";
   public LoginInfo CurrentLoginInfo = null;
-  const string STORAG_KEY = "TempBackendToken";
+  const string STORAGE_KEY = "TempBackendToken";
 
   public string Token { get { return CurrentLoginInfo?.Token; } }
 
   public async Task<bool> CheckLocalTokenValid()
   {
    bool result = false;
-   string token = await localStorage.GetItemAsync<string>(STORAG_KEY);
+
+   string token = await localStorage.GetItemAsync<string>(STORAGE_KEY);
    if (!String.IsNullOrEmpty(token))
    {
     // Es gibt ein Token im Local Storage. Nachfrage beim Server, ob noch gültig.
-    Console.WriteLine("Checking local token " + token  + "...");
+    Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(CheckLocalTokenValid)}: Checking local token {token}...");
     var l = new LoginInfo() {Token=token, ClientID = AuthenticationManager.ClientID };
     this.CurrentLoginInfo = await proxy.LoginAsync(l);
     if (this.CurrentLoginInfo == null || String.IsNullOrEmpty(CurrentLoginInfo.Token))
     { // Token ungültig!
-     Console.WriteLine($"{nameof(CheckLocalTokenValid)}: Token not valid: {CurrentLoginInfo?.Message}!");
+     Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(CheckLocalTokenValid)}: Token not valid: {CurrentLoginInfo?.Message}!");
      CurrentLoginInfo = null;
     }
     else
     { // Token gültig!
-     Console.WriteLine($"{nameof(CheckLocalTokenValid)}: Found valid Token = : {CurrentLoginInfo.Token}");
+     Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(CheckLocalTokenValid)}: Found valid Token: {CurrentLoginInfo.Token} for User: {CurrentLoginInfo.Username}");
      Notify();
      result = true;
     }
    }
    else
    {
-    Console.WriteLine($"{nameof(CheckLocalTokenValid)}: No local token!");
+    Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(CheckLocalTokenValid)}: No local token!");
    }
    Notify();
    return result;
@@ -71,18 +73,18 @@ namespace Web
     CurrentLoginInfo = await proxy.LoginAsync(l);
     if (String.IsNullOrEmpty(CurrentLoginInfo.Token))
     {
-     Console.WriteLine("Anmeldung NICHT erfolgreich: " + this.CurrentLoginInfo.Username);
+     Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(Login)}: Anmeldung NICHT erfolgreich: " + username);
     }
     else
     {
      result = true;
-     await localStorage.SetItemAsync<string>(STORAG_KEY, this.CurrentLoginInfo.Token);
-     Console.WriteLine("Anmeldung erfolgreich: " + this.CurrentLoginInfo.Username);
+     await localStorage.SetItemAsync<string>(STORAGE_KEY, this.CurrentLoginInfo.Token);
+     Console.WriteLine($"{nameof(AuthenticationManager)}.{ nameof(Login)}: Anmeldung erfolgreich: " + this.CurrentLoginInfo.Username);
     }
    }
    catch (Exception ex)
    {
-    Console.WriteLine("Anmeldefehler: " + ex.Message);
+    Console.WriteLine($"{nameof(AuthenticationManager)}.{ nameof(Login)}: Anmeldefehler: " + ex.Message);
    }
    Notify();
    return result;
@@ -93,18 +95,20 @@ namespace Web
   /// </summary>
   public async Task Logout()
   {
-   Console.WriteLine("Logout", this.CurrentLoginInfo);
    if (this.CurrentLoginInfo == null) return;
    var e = await proxy.LogoffAsync(this.CurrentLoginInfo.Token);
    if (e)
    {
     // Remove LoginInfo in RAM for clearing authenticaton state
     CurrentLoginInfo = null;
+    // Remove LoginInfo in browser local storage
+    await localStorage.RemoveItemAsync(STORAGE_KEY);
     Notify();
+    Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(Logout)}: Logout OK!");
    }
    else
    {
-    Console.WriteLine("Logout Error!");
+    Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(Logout)}: Logout Error!");
    }
   }
 
@@ -113,7 +117,6 @@ namespace Web
   /// </summary>
   private void Notify()
   {
-   Console.WriteLine("Notify: " + CurrentLoginInfo?.Username);
    this.NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
   }
 
@@ -132,12 +135,12 @@ namespace Web
 
     var cp = new ClaimsPrincipal(identity);
     var state = new AuthenticationState(cp);
-    Console.WriteLine("GetAuthenticationStateAsync: " + this.CurrentLoginInfo.Username);
+    Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(GetAuthenticationStateAsync)}: {this.CurrentLoginInfo.Username}");
     return state;
    }
    else
    {
-    Console.WriteLine("GetAuthenticationStateAsync: no user");
+    Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(GetAuthenticationStateAsync)}: No user!");
     var state = new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
     return state;
    }

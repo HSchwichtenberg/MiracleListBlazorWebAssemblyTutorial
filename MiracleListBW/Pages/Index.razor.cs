@@ -18,7 +18,7 @@ namespace Web.Pages
   MiracleListAPI.MiracleListProxy proxy { get; set; }
   [Inject]
   IJSRuntime js { get; set; }
-
+  [Inject] public NavigationManager NavigationManager { get; set; }
   [CascadingParameter] 
   Task<AuthenticationState> authenticationStateTask { get; set; }
 
@@ -38,10 +38,10 @@ namespace Web.Pages
   /// <returns></returns>
   protected override async Task OnInitializedAsync()
   {
-   await ShowCategorySet();
    var user = (await authenticationStateTask).User;
-
-   Console.WriteLine("benutzer: " + user.Identity.AuthenticationType + "/" + user.Identity.IsAuthenticated+ " / " + user.Identity.Name);
+   if (!user.Identity.IsAuthenticated) this.NavigationManager.NavigateTo("/");
+   await ShowCategorySet();
+   //Console.WriteLine("benutzer: " + user.Identity.AuthenticationType + "/" + user.Identity.IsAuthenticated+ " / " + user.Identity.Name);
 
   }
 
