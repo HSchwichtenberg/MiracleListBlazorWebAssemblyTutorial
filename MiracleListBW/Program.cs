@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -11,10 +9,8 @@ namespace Web
 {
  public class Program
  {
-  // DEMO: Startcode
   public static async Task Main(string[] args)
   {
-   // DEMO: Startcode
    Console.WriteLine("Blazor WebAssembly Main()");
    Console.WriteLine(System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription);
    Console.WriteLine("App-Version: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version);
