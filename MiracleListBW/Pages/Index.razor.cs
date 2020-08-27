@@ -51,30 +51,32 @@ namespace Web.Pages
    if (!user.Identity.IsAuthenticated) { this.NavigationManager.NavigateTo("/"); return; }
    await ShowCategorySet();
 
-   var hubURL = new Uri(new Uri(proxy.BaseUrl), "MLHub");
-   Console.WriteLine("SignalR: Connect to " + hubURL.ToString());
-   hubConnection = new HubConnectionBuilder()
-       .WithUrl(hubURL)
-       .Build();
+   // BUG IN PREVIEW 8 !!!! https://github.com/dotnet/aspnetcore/issues/25259
+   //var hubURL = new Uri(new Uri(proxy.BaseUrl), "MLHub");
+   //Console.WriteLine("SignalR: Connect to " + hubURL.ToString());
+   //hubConnection = new HubConnectionBuilder()
+   //    .WithUrl(hubURL)
+   //    .Build();
 
-   // --- eingehende Nachricht
-   hubConnection.On<string>("CategoryListUpdate", async (connectionID) =>
-   {
-    Console.WriteLine($"SignalR-CategoryListUpdate: {connectionID} (Thread #{System.Threading.Thread.CurrentThread.ManagedThreadId})");
-    await ShowCategorySet();
-    StateHasChanged();
-   });
-   // --- eingehende Nachricht
-   hubConnection.On<string, int>("TaskListUpdate", async (connectionID, categoryID) =>
-   {
-    Console.WriteLine($"SignalR-TaskListUpdate: {connectionID}/{categoryID} (Thread #{System.Threading.Thread.CurrentThread.ManagedThreadId})");
-    if (categoryID == this.category.CategoryID) await ShowTaskSet(this.category);
-    StateHasChanged();
-   });
-   // Verbindung zum SignalR-Hub starten
-   await hubConnection.StartAsync();
-   // Registrieren für Events
-   await hubConnection.SendAsync("Register", user.Identity.Name);
+   //// --- eingehende Nachricht
+   //hubConnection.On<string>("CategoryListUpdate", async (connectionID) =>
+   //{
+   // Console.WriteLine($"SignalR-CategoryListUpdate: {connectionID} (Thread #{System.Threading.Thread.CurrentThread.ManagedThreadId})");
+   // await ShowCategorySet();
+   // StateHasChanged();
+   //});
+   //// --- eingehende Nachricht
+   //hubConnection.On<string, int>("TaskListUpdate", async (connectionID, categoryID) =>
+   //{
+   // Console.WriteLine($"SignalR-TaskListUpdate: {connectionID}/{categoryID} (Thread #{System.Threading.Thread.CurrentThread.ManagedThreadId})");
+   // if (categoryID == this.category.CategoryID) await ShowTaskSet(this.category);
+   // StateHasChanged();
+   //});
+
+   //// Verbindung zum SignalR-Hub starten
+   //await hubConnection.StartAsync();
+   //// Registrieren für Events
+   //await hubConnection.SendAsync("Register", user.Identity.Name);
 
   }
 
