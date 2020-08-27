@@ -11,6 +11,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
+
 namespace Web.Pages
 {
  public partial class Index
@@ -24,6 +25,7 @@ namespace Web.Pages
   [Inject] public NavigationManager NavigationManager { get; set; }
   [CascadingParameter] 
   Task<AuthenticationState> authenticationStateTask { get; set; }
+  [Inject] Blazored.Toast.Services.IToastService toastService { get; set; }
 
   #region Infrastruktur-Objekte
   HubConnection hubConnection;
@@ -50,34 +52,37 @@ namespace Web.Pages
    user = (await authenticationStateTask).User;
    if (!user.Identity.IsAuthenticated) { this.NavigationManager.NavigateTo("/"); return; }
    await ShowCategorySet();
+   
+   var hubURL = new Uri(new Uri(proxy.BaseUrl), "MLHub");
+   Console.WriteLine("SignalR: Connect to " + hubURL.ToString());
+   hubConnection = new HubConnectionBuilder()
+       .WithUrl(hubURL)
+       .Build();
 
-   // BUG IN PREVIEW 8 !!!! https://github.com/dotnet/aspnetcore/issues/25259
-   //var hubURL = new Uri(new Uri(proxy.BaseUrl), "MLHub");
-   //Console.WriteLine("SignalR: Connect to " + hubURL.ToString());
-   //hubConnection = new HubConnectionBuilder()
-   //    .WithUrl(hubURL)
-   //    .Build();
+   // --- eingehende Nachricht
+   hubConnection.On<string>("CategoryListUpdate", async (connectionID) =>
+   {
+    string s =  $"Kategorieliste wurde auf einem anderen System geändert.";
+    Console.WriteLine(s);
+    toastService.ShowSuccess(s, "Kategorien geändert");
+    await ShowCategorySet();
+    StateHasChanged();
 
-   //// --- eingehende Nachricht
-   //hubConnection.On<string>("CategoryListUpdate", async (connectionID) =>
-   //{
-   // Console.WriteLine($"SignalR-CategoryListUpdate: {connectionID} (Thread #{System.Threading.Thread.CurrentThread.ManagedThreadId})");
-   // await ShowCategorySet();
-   // StateHasChanged();
-   //});
-   //// --- eingehende Nachricht
-   //hubConnection.On<string, int>("TaskListUpdate", async (connectionID, categoryID) =>
-   //{
-   // Console.WriteLine($"SignalR-TaskListUpdate: {connectionID}/{categoryID} (Thread #{System.Threading.Thread.CurrentThread.ManagedThreadId})");
-   // if (categoryID == this.category.CategoryID) await ShowTaskSet(this.category);
-   // StateHasChanged();
-   //});
+   });
+   // --- eingehende Nachricht
+   hubConnection.On<string, int>("TaskListUpdate", async (connectionID, categoryID) =>
+   {
+    string s = $"Aufgaben der Kategorie #{category.CategoryID}: \"{this.category.Name}\" wurden auf einem anderen System geändert.";
+    Console.WriteLine(s);
+    toastService.ShowInfo(s, "Aufgaben geändert");
+    if (categoryID == this.category.CategoryID) await ShowTaskSet(this.category);
+    StateHasChanged();
+   });
 
-   //// Verbindung zum SignalR-Hub starten
-   //await hubConnection.StartAsync();
-   //// Registrieren für Events
-   //await hubConnection.SendAsync("Register", user.Identity.Name);
-
+   // Verbindung zum SignalR-Hub starten
+   await hubConnection.StartAsync();
+   // Registrieren für Events
+   await hubConnection.SendAsync("Register", user.Identity.Name);
   }
 
   public async Task ShowCategorySet()

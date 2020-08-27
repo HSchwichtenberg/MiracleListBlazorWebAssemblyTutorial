@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BO", "BO\BO.csproj", "{8DF7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiracleListBW32", "MiracleListBW\MiracleListBW32.csproj", "{6C50949D-FCA6-41EA-A896-49A308F10343}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiracleListBW", "MiracleListBW\MiracleListBW.csproj", "{7D39411E-8184-469C-A51A-0492FB489807}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,10 +27,6 @@ Global
 		{6C50949D-FCA6-41EA-A896-49A308F10343}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C50949D-FCA6-41EA-A896-49A308F10343}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C50949D-FCA6-41EA-A896-49A308F10343}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7D39411E-8184-469C-A51A-0492FB489807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7D39411E-8184-469C-A51A-0492FB489807}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7D39411E-8184-469C-A51A-0492FB489807}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7D39411E-8184-469C-A51A-0492FB489807}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
