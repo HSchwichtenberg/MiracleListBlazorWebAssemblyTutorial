@@ -52,7 +52,7 @@ namespace Web.Pages
    user = (await authenticationStateTask).User;
    if (!user.Identity.IsAuthenticated) { this.NavigationManager.NavigateTo("/"); return; }
    await ShowCategorySet();
-   
+
    var hubURL = new Uri(new Uri(proxy.BaseUrl), "MLHub");
    Console.WriteLine("SignalR: Connect to " + hubURL.ToString());
    hubConnection = new HubConnectionBuilder()
@@ -62,21 +62,26 @@ namespace Web.Pages
    // --- eingehende Nachricht
    hubConnection.On<string>("CategoryListUpdate", async (connectionID) =>
    {
-    string s =  $"Kategorieliste wurde auf einem anderen System geändert.";
-    Console.WriteLine(s);
-    toastService.ShowSuccess(s, "Kategorien geändert");
-    await ShowCategorySet();
-    StateHasChanged();
-
+    if (hubConnection.ConnectionId != connectionID)
+    {
+     string s = $"Kategorieliste wurde auf einem anderen System geändert.";
+     Console.WriteLine(s);
+     toastService.ShowSuccess(s, "Kategorien geändert");
+     await ShowCategorySet();
+     StateHasChanged();
+    }
    });
    // --- eingehende Nachricht
    hubConnection.On<string, int>("TaskListUpdate", async (connectionID, categoryID) =>
+   {
+   if (hubConnection.ConnectionId != connectionID)
    {
     string s = $"Aufgaben der Kategorie #{category.CategoryID}: \"{this.category.Name}\" wurden auf einem anderen System geändert.";
     Console.WriteLine(s);
     toastService.ShowInfo(s, "Aufgaben geändert");
     if (categoryID == this.category.CategoryID) await ShowTaskSet(this.category);
     StateHasChanged();
+    }
    });
 
    // Verbindung zum SignalR-Hub starten
