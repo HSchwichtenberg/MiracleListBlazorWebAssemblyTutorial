@@ -44,5 +44,5 @@ Die Quellcodestände vor/nach den einzelnen Tutorial-Teilen finden Sie in den Br
 # Webadressen
 
 - [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) im .NET-Lexikon 
-- [Fertige Lösung "MiracleList"](http://miraclelist-bw.azurewebsites.net/) auf Basis Blazor WebAssembly Single-Page-Webanwendung "MiracleList"
+- [Fertige Lösung "MiracleList"](http://miraclelist-bw.azurewebsites.net/) auf Basis Blazor WebAssembly 
 - [Cloudbasiertes MiracleList-Backend](http://miraclelistbackend.azurewebsites.net/clientid) basiert auf .NET Core 3.1  --> [Quellcode auf GitHub](https://github.com/HSchwichtenberg/MiracleListBackend)
