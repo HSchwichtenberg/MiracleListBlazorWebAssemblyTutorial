@@ -50,7 +50,7 @@ namespace Web.Pages
   {
    Console.WriteLine(System.Threading.Thread.CurrentThread.ManagedThreadId);
    user = (await authenticationStateTask).User;
-   if (!user.Identity.IsAuthenticated) { this.NavigationManager.NavigateTo("/"); return; }
+   //if (!user.Identity.IsAuthenticated) { this.NavigationManager.NavigateTo("/"); return; }
    await ShowCategorySet();
 
    var hubURL = new Uri(new Uri(proxy.BaseUrl), "MLHub");
