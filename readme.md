@@ -15,12 +15,11 @@ Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verl
 
 # Voraussetzungen
 - [Visual Studio 2019 v16.8](https://visualstudio.microsoft.com/de/vs/preview/) oder höher (Alternativ: v16.7, damit ist dann aber nur Blazor WebAssembly 3.2 nutzbar!)
-- [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) Preview 8 oder höher (Alternativ: Blazor WebAssembly 3.2 im [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1), Lazy Loading in Teil 4 damit nicht lösbar!)
+- [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) Release Candidate 1 oder höher (Alternativ: Blazor WebAssembly 3.2 im [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1), Lazy Loading in Teil 4 damit nicht lösbar!)
 - Wichtig: Sie benötigen eine eigene [Client-ID für das cloudbasierte MiracleList-Backend](http://miraclelistbackend.azurewebsites.net/clientid)!
 
 # Inkompabitilitäten
 - Lazy Loading (Teil 4) ist erst ab Blazor 5.0 möglich
-- ASP.NET SignalR (Teil 5) funktioniert nicht mit Blazor 5.0 Preview 8 :-( --> verwenden Sie hier MiracleListBW32.csproj!
 
 # Quellcodestände
 
@@ -38,8 +37,6 @@ Die Quellcodestände vor/nach den einzelnen Tutorial-Teilen finden Sie in den Br
 [3]: https://github.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/tree/EndeTeil3
 [4]: https://github.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/tree/EndeTeil4
 [5]: https://github.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/tree/EndeTeil5
-
-
 
 # Webadressen
 
