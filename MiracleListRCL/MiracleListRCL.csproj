@@ -5,6 +5,17 @@
     <RootNamespace>Web</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Pages\Index.razor.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Pages\Index.razor.css">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 
   <ItemGroup>
      <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0-preview.8.20414.8" />
