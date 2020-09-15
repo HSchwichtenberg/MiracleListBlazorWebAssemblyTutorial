@@ -44,10 +44,11 @@ namespace Web.Pages
    await ShowCategorySet();
   }
 
-
   public async Task ShowCategorySet()
   {
    categorySet = await proxy.CategorySetAsync(am.Token);
+   // zeige erste Kategorie an, wenn es Kategorien gibt!
+   if (this.categorySet.Count > 0) await ShowTaskSet(this.categorySet[0]);
   }
 
    public async Task ShowTaskSet(BO.Category c)
