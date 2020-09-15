@@ -23,7 +23,7 @@
  </ItemGroup>
 
  <ItemGroup>
-  <BlazorWebAssemblyLazyLoad Include="MiracleListRCL" />
+  <BlazorWebAssemblyLazyLoad Include="MiracleListRCL.dll" />
  </ItemGroup>
 
  <!--Unterdrückung einiger Warnungen-->
