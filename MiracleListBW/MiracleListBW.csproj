@@ -19,6 +19,11 @@
   <FileVersion>0.4.0.0</FileVersion>
  </PropertyGroup>
 
+ <!--Lazy Loading-->
+ <ItemGroup>
+  <BlazorWebAssemblyLazyLoad Include="MiracleListRCL" />
+ </ItemGroup>
+
  <!--Unterdrückung einiger Warnungen-->
  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
   <NoWarn>1701;1702;1998</NoWarn>
@@ -38,5 +43,7 @@
  <ItemGroup>
   <ProjectReference Include="..\BO\BO.csproj" />
   <ProjectReference Include="..\MiracleListAPI_Proxy\MiracleListAPI_Proxy.csproj" />
+  <ProjectReference Include="..\MiracleListRCL\MiracleListRCL.csproj" />
+  <ProjectReference Include="..\MiracleListUtil\MiracleListUtil.csproj" />
  </ItemGroup>
 </Project>

@@ -1,6 +1,16 @@
-﻿@inject NavigationManager NavigationManager
+﻿@using System.Reflection
+@using Microsoft.AspNetCore.Components.Routing
+@using Microsoft.AspNetCore.Components.WebAssembly.Services
+@inject LazyAssemblyLoader LazyAssemblyLoader
+@inject NavigationManager NavigationManager
+
 <CascadingAuthenticationState>
- <Router AppAssembly="typeof(Program).Assembly">
+ <Router AppAssembly="typeof(Program).Assembly" AdditionalAssemblies="lazyLoadedAssemblies" OnNavigateAsync="@OnNavigateAsync">
+  <Navigating>
+   <div>
+    <p>Loading the requested page...</p>
+   </div>
+  </Navigating>
   <Found Context="routeData">
    <AuthorizeRouteView RouteData="@routeData"
                        DefaultLayout="@typeof(MainLayout)">
@@ -13,7 +23,25 @@
    </AuthorizeRouteView>
   </Found>
   <NotFound>
-   <h1>Page not found</h1>
+   <LayoutView Layout="typeof(MainLayout)">
+    <p>Sorry, there is nothing at this address.</p>
+   </LayoutView>
   </NotFound>
  </Router>
 </CascadingAuthenticationState>
+
+@code {
+ private List<Assembly> lazyLoadedAssemblies =
+    new List<Assembly>();
+
+ private async Task OnNavigateAsync(NavigationContext args)
+ {
+  Console.WriteLine("OnNavigateAsync: " + args.Path);
+  if (args.Path.EndsWith("main") || args.Path.EndsWith("about"))
+  {
+   Console.WriteLine("Lazy Loading MiracleListRCL.dll...");
+   var assemblies = await LazyAssemblyLoader.LoadAssembliesAsync(new string[] { "MiracleListRCL.dll" });
+   lazyLoadedAssemblies.AddRange(assemblies);
+  }
+ }
+}
