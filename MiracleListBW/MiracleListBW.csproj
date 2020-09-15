@@ -43,5 +43,7 @@
  <ItemGroup>
   <ProjectReference Include="..\BO\BO.csproj" />
   <ProjectReference Include="..\MiracleListAPI_Proxy\MiracleListAPI_Proxy.csproj" />
+  <ProjectReference Include="..\MiracleListRCL\MiracleListRCL.csproj" />
+  <ProjectReference Include="..\MiracleListUtil\MiracleListUtil.csproj" />
  </ItemGroup>
 </Project>
