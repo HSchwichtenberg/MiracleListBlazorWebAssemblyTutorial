@@ -30,6 +30,8 @@ namespace Web.Pages
    if (await am.Login())
    {
     categorySet = await proxy.CategorySetAsync(am.CurrentLoginInfo.Token);
+    // zeige erste Kategorie an, wenn es Kategorien gibt!
+    if (this.categorySet.Count > 0) await ShowTaskSet(this.categorySet[0]);
    }
   }
 
