@@ -29,9 +29,14 @@ namespace Web.Pages
   {
    if (await am.Login())
    {
-    categorySet = await proxy.CategorySetAsync(am.CurrentLoginInfo.Token);
+    Console.WriteLine("Anmeldung erfolgreich. Token=" + am.Token);
+    categorySet = await proxy.CategorySetAsync(am.Token);
     // zeige erste Kategorie an, wenn es Kategorien gibt!
     if (this.categorySet.Count > 0) await ShowTaskSet(this.categorySet[0]);
+   }
+   else
+   {
+    Console.WriteLine("FEHLER: Anmeldung NICHT erfolgreich." + am.CurrentLoginInfo.Message);
    }
   }
 

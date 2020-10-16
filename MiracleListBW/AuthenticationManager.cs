@@ -21,7 +21,8 @@ namespace Web
   public const string DebugUser = "iXTutorial";
   public const string DebugPassword = "Sehr+Geheim"; // :-)
   public const string ClientID = "11111111-1111-1111-1111-111111111111"; // TODO: Hier Ihre persönliche Client-ID eintragen! http://miraclelistbackend.azurewebsites.net/clientid
-  public LoginInfo CurrentLoginInfo = null;
+  public LoginInfo CurrentLoginInfo { get; set; } = null;
+  public string Token { get { return CurrentLoginInfo?.Token; } }
 
   public async Task<bool> Login()
   {
