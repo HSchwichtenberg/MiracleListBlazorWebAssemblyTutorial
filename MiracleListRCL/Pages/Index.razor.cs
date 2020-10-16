@@ -23,8 +23,8 @@ namespace Web.Pages
   [Inject]
   IJSRuntime js { get; set; }
   [Inject] public NavigationManager NavigationManager { get; set; }
-  //[CascadingParameter] 
-  //Task<AuthenticationState> authenticationStateTask { get; set; }
+  [CascadingParameter] 
+  Task<AuthenticationState> authenticationStateTask { get; set; }
   [Inject] Blazored.Toast.Services.IToastService toastService { get; set; }
 
   #region Infrastruktur-Objekte
@@ -49,8 +49,7 @@ namespace Web.Pages
   protected override async Task OnInitializedAsync()
   {
    Console.WriteLine(System.Threading.Thread.CurrentThread.ManagedThreadId);
-   
-   //user = (await authenticationStateTask).User;
+   user = (await authenticationStateTask).User;
    //if (!user.Identity.IsAuthenticated) { this.NavigationManager.NavigateTo("/"); return; }
    await ShowCategorySet();
 
