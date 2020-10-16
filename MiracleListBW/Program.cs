@@ -32,6 +32,9 @@ namespace Web
   {
    IServiceCollection services = builder.Services;
    services.AddSingleton(new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+
+   services.AddScoped(typeof(MiracleListAPI.MiracleListProxy));
+
   }
  }
 }
