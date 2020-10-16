@@ -1,11 +1,15 @@
 # Blazor WebAssembly Tutorial für Heise Developer
 
-Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) anhand der [Single-Page-Webanwendung "MiracleList"](http://miraclelist-bw.azurewebsites.net/). Dieses Tuorial wird im Herbst 2020 bei [www.heise.de/developer](https://www.heise.de/developer) erscheinen (Termine noch offen).
+Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) anhand der [Single-Page-Webanwendung "MiracleList"](http://miraclelist-bw.azurewebsites.net/). Dieses Tuorial wird im Herbst 2020 bei [www.heise.de/developer](https://www.heise.de/developer) erscheinen.
 
 ![MiracleList Logo](https://raw.githubusercontent.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/Master/MiracleListBW/wwwroot/img/MiracleListLogo.jpg "MiracleList Logo")
 
-# Anleitung
+# Status der Beiträge
+- Das Tutorial wurde am 3.9.2020 komplett (alle fünf Teile) bei der Heise Redaktion abgeliefert.
+- Über den Veröffentlichungszeitpunkt entscheidet die Redaktion.
+- Aussage der Redaktion vom 7.10.2020: "Der erste Teil dürfte dann noch im Oktober laufen. Die folgenden Teile dann in den Folgemonaten.".
 
+# Webadressen zu den Beiträgen
 Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verlinkt:
 - [Einleitungsbeitrag: Blazor Server und Blazor WebAssembly: Alternativen zu JavaScript?](https://www.heise.de/hintergrund/Blazor-Server-und-Blazor-WebAssembly-Alternativen-zu-JavaScript-4907799.html)
 - Teil 1: Web API-Aufrufe und Rendern von Daten (ca. 18.000 Zeichen)
