@@ -35,10 +35,9 @@
 
 @code
 {
-
  public void ShowAbout()
  {
-
-   NavigationManager.NavigateTo("/About");
-  }
+  if (NavigationManager.Uri.ToLower().Contains("/about")) NavigationManager.NavigateTo("/");
+  else NavigationManager.NavigateTo("About");
  }
+}
