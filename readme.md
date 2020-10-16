@@ -7,6 +7,7 @@ Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_
 # Anleitung
 
 Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verlinkt:
+- [Einleitungsbeitrag: Blazor Server und Blazor WebAssembly: Alternativen zu JavaScript?](https://www.heise.de/hintergrund/Blazor-Server-und-Blazor-WebAssembly-Alternativen-zu-JavaScript-4907799.html)
 - Teil 1: Web API-Aufrufe und Rendern von Daten (ca. 18.000 Zeichen)
 - Teil 2: Eingabesteuerelemente und JavaScript-Interoperabilität (ca. 20.000 Zeichen)
 - Teil 3: Authentifizierung und Autorisierung (ca. 20.000 Zeichen)
@@ -15,14 +16,13 @@ Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verl
 
 # Voraussetzungen
 - [Visual Studio 2019 v16.8](https://visualstudio.microsoft.com/de/vs/preview/) oder höher (Alternativ: v16.7, damit ist dann aber nur Blazor WebAssembly 3.2 nutzbar!)
-- [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) Release Candidate 1 oder höher (Alternativ: Blazor WebAssembly 3.2 im [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1), Lazy Loading in Teil 4 damit nicht lösbar!)
+- [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) Release Candidate 2 oder höher (Alternativ: Blazor WebAssembly 3.2 im [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1), Lazy Loading in Teil 4 damit nicht lösbar!)
 - Wichtig: Sie benötigen eine eigene [Client-ID für das cloudbasierte MiracleList-Backend](http://miraclelistbackend.azurewebsites.net/clientid)!
 
 # Inkompabitilitäten
 - Lazy Loading (Teil 4) ist erst ab Blazor 5.0 möglich
 
 # Quellcodestände
-
 Die Quellcodestände vor/nach den einzelnen Tutorial-Teilen finden Sie in den Branches
 - [Ausgangszustand / Beginn Teil 1][0]
 - [Stand nach Teil 1 / Beginn Teil 2][1]
