@@ -30,9 +30,4 @@
   <ProjectReference Include="..\MiracleListUtil\MiracleListUtil.csproj" />
  </ItemGroup>
 
-
- <ItemGroup>
-  <Folder Include="wwwroot\" />
- </ItemGroup>
-
 </Project>

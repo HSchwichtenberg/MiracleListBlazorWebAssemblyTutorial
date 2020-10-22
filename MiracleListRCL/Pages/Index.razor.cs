@@ -166,22 +166,41 @@ namespace Web.Pages
    await hubConnection.SendAsync("SendTaskListUpdate", user.Identity.Name, this.category.CategoryID);
   }
 
+
+  DotNetObjectReference<Index> obj;
   /// <summary>
   /// Ereignisbehandlung: Benutzer löscht Aufgabe
   /// </summary>
   public async System.Threading.Tasks.Task RemoveTask(BO.Task t)
   {
-   // Rückfrage (Browser-Dialog via JS!)
-   if (!await js.InvokeAsync<bool>("confirm", "Remove Task #" + t.TaskID + ": " + t.Title + "?")) return;
+
+   IJSObjectReference skript = await js.InvokeAsync<IJSObjectReference>("import", "/_content/MiracleListRCL/JSUtil.js");
+
+   // Rückfrage (Standard-Browser-Dialog via JS!)
+   //if (!await js.InvokeAsync<bool>("confirmWithLog", "Remove Task #" + t.TaskID + ": " + t.Title + "?", true)) return;
+
+   // Rückfrage (Bootstrap-Dialog via JS!)
+   obj = DotNetObjectReference.Create(this);
+   await skript.InvokeVoidAsync("confirmBootstrap", obj, t.TaskID, "Remove this Task?<br><br><b>#" + t.TaskID + ": " + t.Title, true);
+  }
+
+  [JSInvokable]
+  public async void ConfirmedRemoveTask(int taskID, bool result)
+  {
+   Console.WriteLine($"ConfirmedRemoveTask: #{taskID}:{result}");
+   if (result == false) return;
    // Löschen via WebAPI-Aufruf
-   await proxy.DeleteTaskAsync(t.TaskID, am.Token);
+   await proxy.DeleteTaskAsync(taskID, am.Token);
    // Liste der Aufgaben neu laden
    await ShowTaskSet(this.category);
    // aktuelle Aufgabe zurücksetzen
    this.task = null;
+   // Zustandsänderung signalisieren (notwendig, weil Callback!)
+   this.StateHasChanged();
    // SignalR-Nachricht senden
    await hubConnection.SendAsync("SendTaskListUpdate", user.Identity.Name, this.category.CategoryID);
   }
+
 
   /// <summary>
   /// Ereignisbehandlung: Benutzer löscht Kategorie

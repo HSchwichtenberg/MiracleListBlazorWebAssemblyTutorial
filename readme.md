@@ -43,6 +43,11 @@ Die Quellcodestände vor/nach den einzelnen Tutorial-Teilen finden Sie in den Br
 [4]: https://github.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/tree/EndeTeil4
 [5]: https://github.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/tree/EndeTeil5
 
+Hinweis: Der Master-Branch enthält gegenüber bei Heise veröffentlichten Tutorial folgende weitere Funktionen
+- Nachladen von JavaScript-Dateien
+- Modaler Bestätigungsdialog mit Bootstrap
+
+
 # Webadressen
 
 - [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) im .NET-Lexikon 

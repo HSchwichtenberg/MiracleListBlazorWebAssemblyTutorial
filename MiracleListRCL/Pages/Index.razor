@@ -39,8 +39,8 @@
       <li class="list-group-item" @onclick="() => ShowTaskDetail(t)" style="Background-color: @((t.TaskID == this.task?.TaskID) ? "#E0EEFA" : "white")" title="Task #@t.TaskID">
        <span id="Remove" style="float:right;" class="glyphicon glyphicon-remove-circle" @onclick="() => RemoveTask(t)"></span>
 
-       <input type="checkbox" name="@("done" + t.TaskID)" id="@("done" + t.TaskID)" checked="@t.Done" class=" MLcheckbox" @onchange=@(async(eventArgs) => {                                                                                                                      t.Done = (bool)eventArgs.Value; 
-                 await proxy.ChangeTaskAsync(t, am.Token);                                                          await hubConnection.SendAsync("SendTaskListUpdate", user.Identity.Name, this.category.CategoryID); 
+       <input type="checkbox" name="@("done" + t.TaskID)" id="@("done" + t.TaskID)" checked="@t.Done" class=" MLcheckbox" @onchange=@(async(eventArgs) => {                                                                                                                      t.Done = (bool)eventArgs.Value;
+                 await proxy.ChangeTaskAsync(t, am.Token);                                                          await hubConnection.SendAsync("SendTaskListUpdate", user.Identity.Name, this.category.CategoryID);
        }) />
 
        <b>@t.Title</b>
@@ -70,3 +70,22 @@
  }
 
 </div>
+
+
+<div id="confirmModal" class="modal fade"  tabindex="-1" role="dialog">
+ <div class="modal-dialog" role="document">
+  <div class="modal-content">
+   <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">Confirmation</h4>
+   </div>
+   <div class="modal-body">
+    <p id="confirmModalText"></p>
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-primary" id="confirmModalText-btn-yes">Yes</button>
+    <button type="button" class="btn btn-default" id="confirmModalText-btn-no">No</button>
+   </div>
+  </div><!-- /.modal-content -->
+ </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
