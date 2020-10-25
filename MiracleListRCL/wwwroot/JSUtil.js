@@ -9,7 +9,7 @@
 // Modaler Bestätigungsdialog mit Bootstrap
 export function confirmBootstrap(dotnetObj, taskID, text, log = false) {
  if (log) console.log(confirmBootstrap, dotnetObj, taskID, text);
- // Setzte Text
+ // Setze Text
  $("#confirmModalText").html(text);
  // Binde Ereignis für Schaltfläche 1 ("Yes")
  $("#confirmModalText-btn-yes").on("click", function () {
