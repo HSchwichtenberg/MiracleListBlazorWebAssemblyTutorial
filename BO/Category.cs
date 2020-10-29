@@ -11,6 +11,9 @@ namespace BO
  /// </summary>
  public class Category
  {
+  /// <summary>
+  /// Primärschlüssel wird von DB vergeben!
+  /// </summary>
   public int CategoryID { get; set; } // PK
 
   [MaxLength(50)] 

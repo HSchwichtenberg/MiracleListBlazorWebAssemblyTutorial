@@ -14,6 +14,10 @@ namespace BO
  public class Task
  {
   public const string DefaultTitle = "???";
+
+  /// <summary>
+  /// Primärschlüssel wird von DB vergeben!
+  /// </summary>
   public int TaskID { get; set; } // PK per Konvention
   [MaxLength(250)] // alias: StringLength
   public string Title { get; set; }
@@ -47,7 +51,6 @@ namespace BO
    }
   }
 
-
   public bool Done { get; set; }
   public decimal? Effort { get; set; }
   public int Order { get; set; }
@@ -56,8 +59,13 @@ namespace BO
 
   // -------------- Navigation Properties
   public List<SubTask> SubTaskSet { get; set; } // 1:N
+
   [Newtonsoft.Json.JsonIgnore] // Do not serialize 
   public Category Category { get; set; }
-  public int CategoryID { get; set; } // optional: FK Property
+
+  /// <summary>
+  /// CategoryID ist Pflicht für neue Tasks!
+  /// </summary>
+  public int CategoryID { get; set; } 
  }
 }
