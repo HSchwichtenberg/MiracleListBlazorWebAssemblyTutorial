@@ -103,10 +103,11 @@ namespace Web.Pages
    }
   }
 
-  public async Task ReloadTasks(int taskID)
+  public async Task ReloadTasks(bool reload)
   {
-   // reload all tasks in current category
-   //await ShowTaskSet(this.category);
+  
+   if (reload) await ShowTaskSet(this.category); // Bei Cancel sollte die Liste der Aufgaben neu geladen werden, denn sonst geistert das modifizierte, aber nicht persistierte Objekt noch im RAM herum. 
+   // Nun keine aktuelle Aufgabe mehr!
    this.task = null;
   }
 
