@@ -157,8 +157,7 @@ namespace Web.Pages
   }
 
   public async Task ReloadTasks(bool reload)
-  {
-  
+  { 
    if (reload) await ShowTaskSet(this.category); // Bei Cancel sollte die Liste der Aufgaben neu geladen werden, denn sonst geistert das modifizierte, aber nicht persistierte Objekt noch im RAM herum. 
    // Nun keine aktuelle Aufgabe mehr!
    this.task = null;
@@ -169,7 +168,7 @@ namespace Web.Pages
 
   DotNetObjectReference<Index> obj;
   /// <summary>
-  /// Ereignisbehandlung: Benutzer l�scht Aufgabe
+  /// Ereignisbehandlung: Benutzer löscht Aufgabe
   /// </summary>
   public async System.Threading.Tasks.Task RemoveTask(BO.Task t)
   {

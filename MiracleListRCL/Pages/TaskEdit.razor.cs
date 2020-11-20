@@ -13,7 +13,7 @@ namespace Web.Pages
   public BO.Task Task { get; set; }
 
   [Parameter] // Ereignis, wenn Aufgabe sich geändert hat
-  public EventCallback<int> TaskHasChanged { get; set; }
+  public EventCallback<bool> TaskHasChanged { get; set; }
 
   [Inject]
   MiracleListAPI.MiracleListProxy proxy { get; set; } = null;
@@ -33,13 +33,12 @@ namespace Web.Pages
   protected async void Save()
   {
    await proxy.ChangeTaskAsync(this.Task, am.Token);
-   await TaskHasChanged.InvokeAsync(Task.TaskID);
+   await TaskHasChanged.InvokeAsync(false);
   }
 
   protected async void Cancel()
   {
-   this.Task = await proxy.TaskAsync(Task.TaskID, am.Token);
-   await TaskHasChanged.InvokeAsync(Task.TaskID);
+   await TaskHasChanged.InvokeAsync(true);
   }
 
  } // end class TaskEdit
