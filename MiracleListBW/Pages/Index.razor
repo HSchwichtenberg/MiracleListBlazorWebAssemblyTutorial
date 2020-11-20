@@ -5,7 +5,7 @@
  <!-- ### Spalte 1: Kategorien-->
  @if (categorySet != null)
  {
-  <div class="WLPanel col-xs-4 col-sm-4 col-md-3 col-lg-2 @(this.task!=null ? "hidden-sm hidden-xs": ""  )">
+  <div class="WLPanel col-xs-4 col-sm-4 col-md-3 col-lg-2">
    <!-- ---------- Überschrift Spalte 1-->
    <h4> @(categorySet.Count()) <span>Categories</span></h4>
    <!-- ---------- neue Kategorie eingeben-->
@@ -24,9 +24,9 @@
   </div>
 
   <!-- ### Spalte 2: Aufgabenliste-->
-  <div class="WLPanel @(this.task==null ? "col-xs-8 col-sm-8 col-md-9 col-lg-10 ": "hidden-xs col-sm-6 col-md-5 col-lg-6"  )">
+  <div class="WLPanel col-xs-8 col-sm-8 col-md-9 col-lg-10">
    <!-- ---------- Überschrift Spalte 2-->
-   <h4 id="TaskHeadline">@(taskSet == null ? 0 : taskSet.Count()) <span>Tasks in</span><i> @category?.Name</i></h4>
+   <h4 id="TaskHeadline">@(taskSet == null ? 0 : taskSet.Count()) <span>Tasks in </span><i>@category?.Name</i></h4>
    <!-- ---------- neue Aufgaben eingeben-->
    @*TODO*@
    <!-- ---------- Aufgabenliste ausgeben-->
@@ -37,7 +37,7 @@
       <li class="list-group-item" @onclick="() => ShowTaskDetail(t)" style="Background-color: @((t.TaskID == this.task?.TaskID) ? "#E0EEFA" : "white")" title="Task #@t.TaskID">
        <span id="Remove" style="float:right;" class="glyphicon glyphicon-remove-circle"></span>
 
-       <input type="checkbox" name="@("done" + t.TaskID)" id="@("done" + t.TaskID)" checked="@t.Done" class="MLcheckbox" />
+       <input type="checkbox" name="@("done" + t.TaskID)" id="@("done" + t.TaskID)" checked="@t.Done" class="MLcheckbox" @onclick:stopPropagation="true" />
 
        <b>@t.Title</b>
 
