@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Components;
+ï»¿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Http.Connections;
@@ -64,9 +64,9 @@ namespace Web.Pages
    {
     if (hubConnection.ConnectionId != connectionID)
     {
-     string s = $"Kategorieliste wurde auf einem anderen System geändert.";
+     string s = $"Kategorieliste wurde auf einem anderen System geï¿½ndert.";
      Console.WriteLine(s);
-     toastService.ShowSuccess(s, "Kategorien geändert");
+     toastService.ShowSuccess(s, "Kategorien geï¿½ndert");
      await ShowCategorySet();
      StateHasChanged();
     }
@@ -76,9 +76,9 @@ namespace Web.Pages
    {
    if (hubConnection.ConnectionId != connectionID)
    {
-    string s = $"Aufgaben der Kategorie #{category.CategoryID}: \"{this.category.Name}\" wurden auf einem anderen System geändert.";
+    string s = $"Aufgaben der Kategorie #{category.CategoryID}: \"{this.category.Name}\" wurden auf einem anderen System geï¿½ndert.";
     Console.WriteLine(s);
-    toastService.ShowInfo(s, "Aufgaben geändert");
+    toastService.ShowInfo(s, "Aufgaben geï¿½ndert");
     if (categoryID == this.category.CategoryID) await ShowTaskSet(this.category);
     StateHasChanged();
     }
@@ -86,7 +86,7 @@ namespace Web.Pages
 
    // Verbindung zum SignalR-Hub starten
    await hubConnection.StartAsync();
-   // Registrieren für Events
+   // Registrieren fï¿½r Events
    await hubConnection.SendAsync("Register", user.Identity.Name);
   }
 
@@ -138,7 +138,7 @@ namespace Web.Pages
     {
      if (string.IsNullOrEmpty(newTaskTitle)) return;
      var t = new BO.Task();
-     t.TaskID = 0; // notwendig für Server, da der die ID vergibt
+     t.TaskID = 0; // notwendig fï¿½r Server, da der die ID vergibt
      t.Title = newTaskTitle;
      t.CategoryID = this.category.CategoryID;
      t.Importance = BO.Importance.B;
@@ -156,11 +156,11 @@ namespace Web.Pages
    }
   }
 
-
-  public async Task ReloadTasks(int taskID)
+  public async Task ReloadTasks(bool reload)
   {
-   // reload all tasks in current category
-   //await ShowTaskSet(this.category);
+  
+   if (reload) await ShowTaskSet(this.category); // Bei Cancel sollte die Liste der Aufgaben neu geladen werden, denn sonst geistert das modifizierte, aber nicht persistierte Objekt noch im RAM herum. 
+   // Nun keine aktuelle Aufgabe mehr!
    this.task = null;
    // SignalR-Nachricht senden
    await hubConnection.SendAsync("SendTaskListUpdate", user.Identity.Name, this.category.CategoryID);
@@ -169,17 +169,17 @@ namespace Web.Pages
 
   DotNetObjectReference<Index> obj;
   /// <summary>
-  /// Ereignisbehandlung: Benutzer löscht Aufgabe
+  /// Ereignisbehandlung: Benutzer lï¿½scht Aufgabe
   /// </summary>
   public async System.Threading.Tasks.Task RemoveTask(BO.Task t)
   {
 
    IJSObjectReference skript = await js.InvokeAsync<IJSObjectReference>("import", "/_content/MiracleListRCL/JSUtil.js");
 
-   // Rückfrage (Standard-Browser-Dialog via JS!)
+   // RÃ¼ckfrage (Standard-Browser-Dialog via JS!)
    //if (!await js.InvokeAsync<bool>("confirmWithLog", "Remove Task #" + t.TaskID + ": " + t.Title + "?", true)) return;
 
-   // Rückfrage (Bootstrap-Dialog via JS!)
+   // RÃ¼ckfrage (Bootstrap-Dialog via JS!)
    obj = DotNetObjectReference.Create(this);
    await skript.InvokeVoidAsync("confirmBootstrap", obj, t.TaskID, "Remove this Task?<br><br><b>#" + t.TaskID + ": " + t.Title, true);
   }
@@ -189,13 +189,13 @@ namespace Web.Pages
   {
    Console.WriteLine($"ConfirmedRemoveTask: #{taskID}:{result}");
    if (result == false) return;
-   // Löschen via WebAPI-Aufruf
+   // LÃ¶schen via WebAPI-Aufruf
    await proxy.DeleteTaskAsync(taskID, am.Token);
    // Liste der Aufgaben neu laden
    await ShowTaskSet(this.category);
-   // aktuelle Aufgabe zurücksetzen
+   // aktuelle Aufgabe zurï¿½cksetzen
    this.task = null;
-   // Zustandsänderung signalisieren (notwendig, weil Callback!)
+   // ZustandsÃ¤nderung signalisieren (notwendig, weil Callback!)
    this.StateHasChanged();
    // SignalR-Nachricht senden
    await hubConnection.SendAsync("SendTaskListUpdate", user.Identity.Name, this.category.CategoryID);
@@ -203,18 +203,18 @@ namespace Web.Pages
 
 
   /// <summary>
-  /// Ereignisbehandlung: Benutzer löscht Kategorie
+  /// Ereignisbehandlung: Benutzer lï¿½scht Kategorie
   /// </summary>
-  /// <param name="c">zu löschende Kategorie</param>
+  /// <param name="c">zu lï¿½schende Kategorie</param>
   public async System.Threading.Tasks.Task RemoveCategory(BO.Category c)
   {
-   // Rückfrage (Browser-Dialog via JS!)
+   // Rï¿½ckfrage (Browser-Dialog via JS!)
    if (!await js.InvokeAsync<bool>("confirm", "Remove Category #" + c.CategoryID + ": " + c.Name + "?")) return;
-   // Löschen via WebAPI-Aufruf
+   // Lï¿½schen via WebAPI-Aufruf
    await proxy.DeleteCategoryAsync(c.CategoryID, am.Token);
    // Liste der Kategorien neu laden
    await ShowCategorySet();
-   // aktuelle Category zurücksetzen
+   // aktuelle Category zurï¿½cksetzen
    this.category = null;
    // SignalR-Nachricht senden
    await hubConnection.SendAsync("SendCategoryListUpdate", user.Identity.Name);
