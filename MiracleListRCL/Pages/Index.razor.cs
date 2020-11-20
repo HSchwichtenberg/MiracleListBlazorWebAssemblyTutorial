@@ -86,7 +86,7 @@ namespace Web.Pages
 
    // Verbindung zum SignalR-Hub starten
    await hubConnection.StartAsync();
-   // Registrieren f�r Events
+   // Registrieren für Events
    await hubConnection.SendAsync("Register", user.Identity.Name);
   }
 
@@ -138,7 +138,7 @@ namespace Web.Pages
     {
      if (string.IsNullOrEmpty(newTaskTitle)) return;
      var t = new BO.Task();
-     t.TaskID = 0; // notwendig f�r Server, da der die ID vergibt
+     t.TaskID = 0; // notwendig für Server, da der die ID vergibt
      t.Title = newTaskTitle;
      t.CategoryID = this.category.CategoryID;
      t.Importance = BO.Importance.B;
@@ -167,7 +167,7 @@ namespace Web.Pages
   }
 
   /// <summary>
-  /// Ereignisbehandlung: Benutzer l�scht Aufgabe
+  /// Ereignisbehandlung: Benutzer löscht Aufgabe
   /// </summary>
   public async System.Threading.Tasks.Task RemoveTask(BO.Task t)
   {
@@ -184,9 +184,9 @@ namespace Web.Pages
   }
 
   /// <summary>
-  /// Ereignisbehandlung: Benutzer l�scht Kategorie
+  /// Ereignisbehandlung: Benutzer löscht Kategorie
   /// </summary>
-  /// <param name="c">zu l�schende Kategorie</param>
+  /// <param name="c">zu löschende Kategorie</param>
   public async System.Threading.Tasks.Task RemoveCategory(BO.Category c)
   {
    // R�ckfrage (Browser-Dialog via JS!)
@@ -195,7 +195,7 @@ namespace Web.Pages
    await proxy.DeleteCategoryAsync(c.CategoryID, am.Token);
    // Liste der Kategorien neu laden
    await ShowCategorySet();
-   // aktuelle Category zur�cksetzen
+   // aktuelle Category zurücksetzen
    this.category = null;
    // SignalR-Nachricht senden
    await hubConnection.SendAsync("SendCategoryListUpdate", user.Identity.Name);
