@@ -8,7 +8,7 @@ Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_
 - Das Tutorial wurde am 3.9.2020 komplett (alle fünf Teile) bei der Heise Redaktion abgeliefert.
 - Über den Veröffentlichungszeitpunkt entscheidet die Redaktion.
 - Aussage der Redaktion vom 7.10.2020: "Der erste Teil dürfte dann noch im Oktober laufen. Die folgenden Teile dann in den Folgemonaten.".
-- Ich habe Texte und Code mittlerweile 2x aktualisiert (auf RC1 und RC2). Aktualisierung auf RTM steht aus.
+- Ich habe Texte und Code mittlerweile 3x aktualisiert (auf RC1 und RC2 und RTM).
 - Der erste Teil des Tutorials ist am 23.10.2020 erschienen.
 
 # Webadressen zu den Beiträgen
