@@ -102,7 +102,7 @@ namespace Web.Pages
     {
      if (string.IsNullOrEmpty(newTaskTitle)) return;
      var t = new BO.Task();
-     t.TaskID = 0; // notwendig f�r Server, da der die ID vergibt
+     t.TaskID = 0; // notwendig für Server, da der die ID vergibt
      t.Title = newTaskTitle;
      t.CategoryID = this.category.CategoryID;
      t.Importance = BO.Importance.B;
@@ -127,7 +127,7 @@ namespace Web.Pages
   }
 
   /// <summary>
-  /// Ereignisbehandlung: Benutzer l�scht Aufgabe
+  /// Ereignisbehandlung: Benutzer löscht Aufgabe
   /// </summary>
   public async System.Threading.Tasks.Task RemoveTask(BO.Task t)
   {
@@ -137,14 +137,14 @@ namespace Web.Pages
    await proxy.DeleteTaskAsync(t.TaskID, am.Token);
    // Liste der Aufgaben neu laden
    await ShowTaskSet(this.category);
-   // aktuelle Aufgabe zur�cksetzen
+   // aktuelle Aufgabe zurücksetzen
    this.task = null;
   }
 
   /// <summary>
-  /// Ereignisbehandlung: Benutzer l�scht Kategorie
+  /// Ereignisbehandlung: Benutzer löscht Kategorie
   /// </summary>
-  /// <param name="c">zu l�schende Kategorie</param>
+  /// <param name="c">zu löschende Kategorie</param>
   public async System.Threading.Tasks.Task RemoveCategory(BO.Category c)
   {
    // R�ckfrage (Browser-Dialog via JS!)
