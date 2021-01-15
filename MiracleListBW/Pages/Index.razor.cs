@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Components;
+ï»¿using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.JSInterop;
@@ -51,12 +51,24 @@ namespace Web.Pages
    if (this.categorySet.Count > 0) await ShowTaskSet(this.categorySet[0]);
   }
 
-   public async Task ShowTaskSet(BO.Category c)
+  /// <summary>
+  /// Lade die Aufgaben einer Kategorie
+  /// und setze die aktuelle Kategorie
+  /// </summary>
+  /// <param name="c">zu ladende Katagorie</param>
+  /// <returns></returns>
+  public async Task ShowTaskSet(BO.Category c)
   {
    this.category = c;
    this.taskSet = await proxy.TaskSetAsync(c.CategoryID, am.Token);
   }
 
+  /// <summary>
+  /// Setze aktuelle Aufgabe
+  /// spï¿½ter: Zeige Details
+  /// </summary>
+  /// <param name="t"></param>
+  /// <returns></returns>
   public async Task ShowTaskDetail(BO.Task t)
   {
    this.task = t;
@@ -90,7 +102,7 @@ namespace Web.Pages
     {
      if (string.IsNullOrEmpty(newTaskTitle)) return;
      var t = new BO.Task();
-     t.TaskID = 0; // notwendig für Server, da der die ID vergibt
+     t.TaskID = 0; // notwendig fï¿½r Server, da der die ID vergibt
      t.Title = newTaskTitle;
      t.CategoryID = this.category.CategoryID;
      t.Importance = BO.Importance.B;
@@ -115,33 +127,33 @@ namespace Web.Pages
   }
 
   /// <summary>
-  /// Ereignisbehandlung: Benutzer löscht Aufgabe
+  /// Ereignisbehandlung: Benutzer lï¿½scht Aufgabe
   /// </summary>
   public async System.Threading.Tasks.Task RemoveTask(BO.Task t)
   {
-   // Rückfrage (Browser-Dialog via JS!)
+   // Rï¿½ckfrage (Browser-Dialog via JS!)
    if (!await js.InvokeAsync<bool>("confirm", "Remove Task #" + t.TaskID + ": " + t.Title + "?")) return;
-   // Löschen via WebAPI-Aufruf
+   // Lï¿½schen via WebAPI-Aufruf
    await proxy.DeleteTaskAsync(t.TaskID, am.Token);
    // Liste der Aufgaben neu laden
    await ShowTaskSet(this.category);
-   // aktuelle Aufgabe zurücksetzen
+   // aktuelle Aufgabe zurï¿½cksetzen
    this.task = null;
   }
 
   /// <summary>
-  /// Ereignisbehandlung: Benutzer löscht Kategorie
+  /// Ereignisbehandlung: Benutzer lï¿½scht Kategorie
   /// </summary>
-  /// <param name="c">zu löschende Kategorie</param>
+  /// <param name="c">zu lï¿½schende Kategorie</param>
   public async System.Threading.Tasks.Task RemoveCategory(BO.Category c)
   {
-   // Rückfrage (Browser-Dialog via JS!)
+   // Rï¿½ckfrage (Browser-Dialog via JS!)
    if (!await js.InvokeAsync<bool>("confirm", "Remove Category #" + c.CategoryID + ": " + c.Name + "?")) return;
-   // Löschen via WebAPI-Aufruf
+   // Lï¿½schen via WebAPI-Aufruf
    await proxy.DeleteCategoryAsync(c.CategoryID, am.Token);
    // Liste der Kategorien neu laden
    await ShowCategorySet();
-   // aktuelle Category zurücksetzen
+   // aktuelle Category zurï¿½cksetzen
    this.category = null;
   }
  } // end class Index
