@@ -40,12 +40,24 @@ namespace Web.Pages
    }
   }
 
+  /// <summary>
+  /// Lade die Aufgaben einer Kategorie
+  /// und setze die aktuelle Kategorie
+  /// </summary>
+  /// <param name="c">zu ladende Katagorie</param>
+  /// <returns></returns>
   public async Task ShowTaskSet(BO.Category c)
   {
    this.category = c;
    this.taskSet = await proxy.TaskSetAsync(c.CategoryID, am.CurrentLoginInfo.Token);
   }
 
+  /// <summary>
+  /// Setze aktuelle Aufgabe
+  /// später: Zeige Details
+  /// </summary>
+  /// <param name="t"></param>
+  /// <returns></returns>
   public async Task ShowTaskDetail(BO.Task t)
   {
    this.task = t;

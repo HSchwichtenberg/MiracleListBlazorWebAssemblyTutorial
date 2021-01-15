@@ -11,9 +11,8 @@
    <!-- ---------- neue Kategorie eingeben-->
    @*TODO*@
    <!-- ---------- Kategorieliste ausgeben-->
-
    <ol class="list-group scroll">
-    @foreach (var c in categorySet)
+    @foreach (BO.Category c in categorySet)
     {
      <li class="list-group-item" @onclick="() => ShowTaskSet(c)" title="Task Category #@c.CategoryID" style="Background-color:@(this.category != null && c.CategoryID == this.category.CategoryID ? "#E0EEFA" : "white")">
       @c.Name
@@ -32,7 +31,7 @@
    <!-- ---------- Aufgabenliste ausgeben-->
    @if (taskSet != null)
    {<ol id="TaskSet" class="list-group scroll">
-     @foreach (var t in taskSet)
+     @foreach (BO.Task t in taskSet)
      {
       <li class="list-group-item" @onclick="() => ShowTaskDetail(t)" style="Background-color: @((t.TaskID == this.task?.TaskID) ? "#E0EEFA" : "white")" title="Task #@t.TaskID">
        <span id="Remove" style="float:right;" class="glyphicon glyphicon-remove-circle"></span>
