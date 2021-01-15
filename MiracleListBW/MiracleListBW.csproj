@@ -19,7 +19,7 @@
   <FileVersion>0.5.1.0</FileVersion>
  </PropertyGroup>
 
- <!--Lazy Loading-->
+ <!--Ausnahmen einer DLL aus dem Bundle für Lazy Loading-->
  <ItemGroup>
   <BlazorWebAssemblyLazyLoad Include="MiracleListRCL.dll" />
  </ItemGroup>
