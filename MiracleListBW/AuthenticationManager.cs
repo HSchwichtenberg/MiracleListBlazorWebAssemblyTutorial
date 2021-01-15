@@ -2,7 +2,7 @@
 using System;
 using MiracleListAPI;
 using System.Security.Claims;   // NEU in Teil 3
-using Microsoft.AspNetCore.Components.Authorization;   // NEU in Teil 3
+using Microsoft.AspNetCore.Components.Authorization; // NEU in Teil 3
 
 namespace Web
 {
@@ -82,7 +82,7 @@ namespace Web
    this.NotifyAuthenticationStateChanged(GetAuthenticationStateAsync());
   }
 
-  // NEU in Teil 3
+  // NEU in Teil 3, gefordert von AuthenticationStateProvider
   public override async Task<AuthenticationState> GetAuthenticationStateAsync()
   {
    if (this.CurrentLoginInfo != null && !String.IsNullOrEmpty(this.CurrentLoginInfo.Token) && !String.IsNullOrEmpty(proxy.BaseUrl))
@@ -103,6 +103,8 @@ namespace Web
    else
    {
     Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(GetAuthenticationStateAsync)}: No user!");
+    
+    // return null wäre nicht ok! hier muss man dieses Konstrukt aufbauen:
     var state = new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
     return state;
    }

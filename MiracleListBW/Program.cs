@@ -35,7 +35,7 @@ namespace Web
    #region DI Serverkommunikation
    services.AddSingleton<MiracleListAPI.MiracleListProxy>();
    //services.AddSingleton<AuthenticationManager>();
-   services.AddSingleton<AuthenticationStateProvider, AuthenticationManager>();
+   services.AddScoped<AuthenticationStateProvider, AuthenticationManager>();
    services.AddAuthorizationCore();
    #endregion
   }
