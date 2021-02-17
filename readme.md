@@ -17,7 +17,7 @@ Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verl
 - [Teil 1: Web API-Aufrufe und Rendern von Daten (ca. 18.000 Zeichen)](https://www.heise.de/ratgeber/Webprogrammierung-mit-Blazor-WebAssembly-Teil-1-Web-API-Aufrufe-und-Rendering-4932237.html) - erschienen am 23.10.2020
 - [Teil 2: Eingabesteuerelemente und JavaScript-Interoperabilität (ca. 20.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Teil-2-Eingabesteuerelemente-JavaScript-Interoperabilitaet-4971874.html) - erschienen am 27.11.2000
 - [Teil 3: Authentifizierung und Autorisierung  (ca. 20.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Teil-3-Authentifizierung-und-Autorisierung-4988529.html) - erschienen am 30.12.2020
-- Teil 4: Zustandsverwaltung und Nachladen von Modulen (ca. 19.000 Zeichen)
+- Teil 4: [Zustandsverwaltung und Nachladen von Modulen (ca. 19.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Teil-4-Zustandsverwaltung-und-Nachladen-von-Modulen-5036983.html) - erschienen am 29.01.2021
 - Teil 5: Bi-Direktionale Kommunikation und Benachrichtigungen (ca. 19.000 Zeichen)
 
 # Voraussetzungen
