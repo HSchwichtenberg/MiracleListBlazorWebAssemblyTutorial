@@ -1,6 +1,6 @@
 # Blazor WebAssembly Tutorial für Heise Developer
 
-Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) anhand der [Single-Page-Webanwendung "MiracleList"](http://miraclelist-bw.azurewebsites.net/). Dieses Tuorial wird im Herbst 2020 bei [www.heise.de/developer](https://www.heise.de/developer) erscheinen.
+Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) anhand der [Single-Page-Webanwendung "MiracleList"](http://miraclelist-bw.azurewebsites.net/). Dieses Tuorial ist zwischen September 2020 und März 2021 bei [www.heise.de/developer](https://www.heise.de/developer) erschienen.
 
 ![MiracleList Logo](https://raw.githubusercontent.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/Master/MiracleListBW/wwwroot/img/MiracleListLogo.jpg "MiracleList Logo")
 
@@ -18,7 +18,7 @@ Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verl
 - [Teil 2: Eingabesteuerelemente und JavaScript-Interoperabilität (ca. 20.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Teil-2-Eingabesteuerelemente-JavaScript-Interoperabilitaet-4971874.html) - erschienen am 27.11.2000
 - [Teil 3: Authentifizierung und Autorisierung  (ca. 20.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Teil-3-Authentifizierung-und-Autorisierung-4988529.html) - erschienen am 30.12.2020
 - [Teil 4: Zustandsverwaltung und Nachladen von Modulen (ca. 19.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Teil-4-Zustandsverwaltung-und-Nachladen-von-Modulen-5036983.html) - erschienen am 29.01.2021
-- Teil 5: Bi-Direktionale Kommunikation und Benachrichtigungen (ca. 19.000 Zeichen)
+- [Teil 5: Bi-Direktionale Kommunikation und Benachrichtigungen (ca. 19.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Bidirektionale-Kommunikation-und-Benachrichtigungen-5069045.html) - erschienen am 02.03.2021
 
 # Voraussetzungen
 - [Visual Studio 2019 v16.8](https://visualstudio.microsoft.com/de/vs/preview/) oder höher (Alternativ: v16.7, damit ist dann aber nur Blazor WebAssembly 3.2 nutzbar!)
