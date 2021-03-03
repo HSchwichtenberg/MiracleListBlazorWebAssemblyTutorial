@@ -1,6 +1,6 @@
 # Blazor WebAssembly Tutorial für Heise Developer
 
-Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) anhand der [Single-Page-Webanwendung "MiracleList"](http://miraclelist-bw.azurewebsites.net/). Dieses Tuorial ist zwischen September 2020 und März 2021 bei [www.heise.de/developer](https://www.heise.de/developer) erschienen.
+Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) anhand der [Single-Page-Webanwendung "MiracleList"](http://miraclelist-bw.azurewebsites.net/). Dieses Tuorial ist zwischen Oktober 2020 und März 2021 bei [www.heise.de/developer](https://www.heise.de/developer) erschienen.
 
 ![MiracleList Logo](https://raw.githubusercontent.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/Master/MiracleListBW/wwwroot/img/MiracleListLogo.jpg "MiracleList Logo")
 
@@ -9,7 +9,6 @@ Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_
 - Über den Veröffentlichungszeitpunkt entscheidet die Redaktion.
 - Aussage der Redaktion vom 7.10.2020: "Der erste Teil dürfte dann noch im Oktober laufen. Die folgenden Teile dann in den Folgemonaten.".
 - Ich habe Texte und Code mittlerweile 3x aktualisiert (auf RC1 und RC2 und RTM).
-- Der erste Teil des Tutorials ist am 23.10.2020 erschienen.
 
 # Webadressen zu den Beiträgen
 Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verlinkt:
