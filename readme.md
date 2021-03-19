@@ -1,6 +1,6 @@
 # Blazor WebAssembly Tutorial für Heise Developer
 
-Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) anhand der [Single-Page-Webanwendung "MiracleList"](http://miraclelist-bw.azurewebsites.net/). Dieses Tuorial wird im Herbst 2020 bei [www.heise.de/developer](https://www.heise.de/developer) erscheinen.
+Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) anhand der [Single-Page-Webanwendung "MiracleList"](http://miraclelist-bw.azurewebsites.net/). Dieses Tuorial ist zwischen Oktober 2020 und März 2021 bei [www.heise.de/developer](https://www.heise.de/developer) erschienen.
 
 ![MiracleList Logo](https://raw.githubusercontent.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/Master/MiracleListBW/wwwroot/img/MiracleListLogo.jpg "MiracleList Logo")
 
@@ -9,16 +9,15 @@ Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_
 - Über den Veröffentlichungszeitpunkt entscheidet die Redaktion.
 - Aussage der Redaktion vom 7.10.2020: "Der erste Teil dürfte dann noch im Oktober laufen. Die folgenden Teile dann in den Folgemonaten.".
 - Ich habe Texte und Code mittlerweile 3x aktualisiert (auf RC1 und RC2 und RTM).
-- Der erste Teil des Tutorials ist am 23.10.2020 erschienen.
 
 # Webadressen zu den Beiträgen
 Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verlinkt:
 - [Einleitungsbeitrag: Blazor Server und Blazor WebAssembly: Alternativen zu JavaScript?](https://www.heise.de/hintergrund/Blazor-Server-und-Blazor-WebAssembly-Alternativen-zu-JavaScript-4907799.html) - erschienen am 22.9.2020
 - [Teil 1: Web API-Aufrufe und Rendern von Daten (ca. 18.000 Zeichen)](https://www.heise.de/ratgeber/Webprogrammierung-mit-Blazor-WebAssembly-Teil-1-Web-API-Aufrufe-und-Rendering-4932237.html) - erschienen am 23.10.2020
 - [Teil 2: Eingabesteuerelemente und JavaScript-Interoperabilität (ca. 20.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Teil-2-Eingabesteuerelemente-JavaScript-Interoperabilitaet-4971874.html) - erschienen am 27.11.2000
-- Teil 3: Authentifizierung und Autorisierung (ca. 20.000 Zeichen)
-- Teil 4: Zustandsverwaltung und Nachladen von Modulen (ca. 19.000 Zeichen)
-- Teil 5: Bi-Direktionale Kommunikation und Benachrichtigungen (ca. 19.000 Zeichen)
+- [Teil 3: Authentifizierung und Autorisierung  (ca. 20.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Teil-3-Authentifizierung-und-Autorisierung-4988529.html) - erschienen am 30.12.2020
+- [Teil 4: Zustandsverwaltung und Nachladen von Modulen (ca. 19.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Teil-4-Zustandsverwaltung-und-Nachladen-von-Modulen-5036983.html) - erschienen am 29.01.2021
+- [Teil 5: Bi-Direktionale Kommunikation und Benachrichtigungen (ca. 19.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Bidirektionale-Kommunikation-und-Benachrichtigungen-5069045.html) - erschienen am 02.03.2021
 
 # Voraussetzungen
 - [Visual Studio 2019 v16.8](https://visualstudio.microsoft.com/de/vs/preview/) oder höher (Alternativ: v16.7, damit ist dann aber nur Blazor WebAssembly 3.2 nutzbar!)
