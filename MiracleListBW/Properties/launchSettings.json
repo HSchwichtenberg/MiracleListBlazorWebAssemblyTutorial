@@ -1,22 +1,22 @@
 {
-  "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
-   "iisExpress": {
-    "applicationUrl": "http://localhost:6843/",
-    "sslPort": 44341
+ "iisSettings": {
+  "windowsAuthentication": false,
+  "anonymousAuthentication": true,
+  "iisExpress": {
+   "applicationUrl": "http://localhost:6843",
+   "sslPort": 44303
+  }
+ },
+ "profiles": {
+  "IIS Express": {
+   "commandName": "IISExpress",
+   "launchBrowser": true,
+   "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
+   "environmentVariables": {
+    "ASPNETCORE_ENVIRONMENT": "Development"
    }
   },
-  "profiles": {
-   "IIS Express": {
-    "commandName": "IISExpress",
-    "launchBrowser": true,
-    "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
-    "environmentVariables": {
-     "ASPNETCORE_ENVIRONMENT": "Development"
-    }
-   },
-   "MiracleListBW": {
+ "MiracleListBW": {
     "commandName": "Project",
     "launchBrowser": true,
     "inspectUri": "{wsProtocol}://{url.hostname}:{url.port}/_framework/debug/ws-proxy?browser={browserInspectUri}",
@@ -26,4 +26,5 @@
     }
    }
   }
+ }
 }
