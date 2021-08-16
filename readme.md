@@ -6,9 +6,8 @@ Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_
 
 # Status der Beiträge
 - Das Tutorial wurde am 3.9.2020 komplett (alle fünf Teile) bei der Heise Redaktion abgeliefert.
-- Über den Veröffentlichungszeitpunkt entscheidet die Redaktion.
-- Aussage der Redaktion vom 7.10.2020: "Der erste Teil dürfte dann noch im Oktober laufen. Die folgenden Teile dann in den Folgemonaten.".
-- Ich habe Texte und Code mittlerweile 3x aktualisiert (auf RC1 und RC2 und RTM).
+- Die Redaktion hat den Text in den Folgemonaten sukzessive veröffentlicht.
+- Der Code wurde mittlerweile auf .NET 6 Preview 7 aktualisiert.
 
 # Webadressen zu den Beiträgen
 Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verlinkt:
@@ -20,12 +19,9 @@ Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verl
 - [Teil 5: Bi-Direktionale Kommunikation und Benachrichtigungen (ca. 19.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Bidirektionale-Kommunikation-und-Benachrichtigungen-5069045.html) - erschienen am 02.03.2021
 
 # Voraussetzungen
-- [Visual Studio 2019 v16.8](https://visualstudio.microsoft.com/de/vs/preview/) oder höher (Alternativ: v16.7, damit ist dann aber nur Blazor WebAssembly 3.2 nutzbar!)
-- [.NET 5.0 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) Release Candidate 2 oder höher (Alternativ: Blazor WebAssembly 3.2 im [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1), Lazy Loading in Teil 4 damit nicht lösbar!)
+- [Visual Studio 2019 v16.11 oder Visual Studio 2022 Preview 3](https://visualstudio.microsoft.com/de/vs/preview/)
+- [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) Preview 7 oder höher
 - Wichtig: Sie benötigen eine eigene [Client-ID für das cloudbasierte MiracleList-Backend](http://miraclelistbackend.azurewebsites.net/clientid)!
-
-# Inkompabitilitäten
-- Lazy Loading (Teil 4) ist erst ab Blazor 5.0 möglich
 
 # Quellcodestände
 Die Quellcodestände vor/nach den einzelnen Tutorial-Teilen finden Sie in den Branches
@@ -46,7 +42,6 @@ Die Quellcodestände vor/nach den einzelnen Tutorial-Teilen finden Sie in den Br
 Hinweis: Der Master-Branch enthält gegenüber bei Heise veröffentlichten Tutorial folgende weitere Funktionen
 - Nachladen von JavaScript-Dateien
 - Modaler Bestätigungsdialog mit Bootstrap
-
 
 # Webadressen
 
