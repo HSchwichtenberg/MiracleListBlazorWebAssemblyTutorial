@@ -8,6 +8,7 @@ namespace Web.Pages
 {
  public partial class TaskEdit
  {
+  [EditorRequired]
   [Parameter] // zu bearbeitende Aufgabe
   public BO.Task Task { get; set; }
 
