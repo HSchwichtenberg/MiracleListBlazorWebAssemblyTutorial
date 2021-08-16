@@ -17,7 +17,6 @@
   <Authors>Dr. Holger Schwichtenberg, www.IT-Visions.de</Authors>
   <Company>www.IT-Visions.de</Company>
   <Product>MiracleList</Product>
-
   <RootNamespace>Web</RootNamespace>
   <StartupObject>Web.Program</StartupObject>
  </PropertyGroup>
