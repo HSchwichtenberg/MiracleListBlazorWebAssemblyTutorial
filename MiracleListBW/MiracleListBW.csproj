@@ -22,9 +22,7 @@
   <RootNamespace>Web</RootNamespace>
   <StartupObject>Web.Program</StartupObject>
  </PropertyGroup>
- <ItemGroup>
-   <None Remove="Pages\Login.razor.css" />
- </ItemGroup>
+
 
  <!--Ausnahmen einer DLL aus dem Bundle für Lazy Loading-->
  <ItemGroup>
@@ -35,12 +33,6 @@
  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
   <NoWarn>1701;1702;1998</NoWarn>
  </PropertyGroup>
- <ItemGroup>
-   <Content Include="Pages\Login.razor.css">
-     <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
-     <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-   </Content>
- </ItemGroup>
 
  <ItemGroup>
   <!--Standardreferenzen für BW-->
