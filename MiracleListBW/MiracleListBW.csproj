@@ -13,7 +13,7 @@
  <!--optionale Anwendungseinstellungen-->
  <PropertyGroup>
   <Description>Blazor WebAssembly-Version des MiracleList Web Frontends</Description>
-  <Copyright>Dr. Holger Schwichtenberg, www.IT-Visions.de 2018-2020</Copyright>
+  <Copyright>Dr. Holger Schwichtenberg, www.IT-Visions.de 2018-2021</Copyright>
   <Authors>Dr. Holger Schwichtenberg, www.IT-Visions.de</Authors>
   <Company>www.IT-Visions.de</Company>
   <Product>MiracleList</Product>
