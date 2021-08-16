@@ -10,6 +10,7 @@ namespace Web.Pages
  public partial class TaskEdit
  {
   [Parameter] // zu bearbeitende Aufgabe
+  [EditorRequired]
   public BO.Task Task { get; set; }
 
   [Parameter] // Ereignis, wenn Aufgabe sich geändert hat
