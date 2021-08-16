@@ -64,9 +64,9 @@ namespace Web.Pages
    {
     if (hubConnection.ConnectionId != connectionID)
     {
-     string s = $"Kategorieliste wurde auf einem anderen System ge�ndert.";
+     string s = $"Kategorieliste wurde auf einem anderen System geändert.";
      Console.WriteLine(s);
-     toastService.ShowSuccess(s, "Kategorien ge�ndert");
+     toastService.ShowSuccess(s, "Kategorien geändert");
      await ShowCategorySet();
      StateHasChanged();
     }
@@ -76,9 +76,9 @@ namespace Web.Pages
    {
    if (hubConnection.ConnectionId != connectionID)
    {
-    string s = $"Aufgaben der Kategorie #{category.CategoryID}: \"{this.category.Name}\" wurden auf einem anderen System ge�ndert.";
+    string s = $"Aufgaben der Kategorie #{category.CategoryID}: \"{this.category.Name}\" wurden auf einem anderen System geändert.";
     Console.WriteLine(s);
-    toastService.ShowInfo(s, "Aufgaben ge�ndert");
+    toastService.ShowInfo(s, "Aufgaben geändert");
     if (categoryID == this.category.CategoryID) await ShowTaskSet(this.category);
     StateHasChanged();
     }
@@ -103,7 +103,7 @@ namespace Web.Pages
    this.taskSet = await proxy.TaskSetAsync(c.CategoryID, am.Token);
   }
 
-  public async Task ShowTaskDetail(BO.Task t)
+  public void ShowTaskDetail(BO.Task t)
   {
    this.task = t;
   }
