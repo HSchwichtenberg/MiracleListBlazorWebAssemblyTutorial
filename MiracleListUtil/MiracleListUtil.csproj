@@ -6,7 +6,7 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Blazored.LocalStorage" Version="3.0.0" />
+    <PackageReference Include="Blazored.LocalStorage" Version="4.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="5.0.2" />
   </ItemGroup>
 
