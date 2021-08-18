@@ -22,14 +22,14 @@ namespace Web.Pages
   [Inject] AuthenticationStateProvider asp { get; set; } = null;
   AuthenticationManager am { get { return (asp as AuthenticationManager); } }
 
-  protected override async System.Threading.Tasks.Task OnInitializedAsync()
-  {
-  }
+  //protected override async System.Threading.Tasks.Task OnInitializedAsync()
+  //{
+  //}
 
-  // wenn Parameter gesetzt wird
-  protected async override void OnParametersSet()
-  {
-  }
+  //// wenn Parameter gesetzt wird
+  //protected async override void OnParametersSet()
+  //{
+  //}
 
   protected async void Save()
   {
