@@ -14,7 +14,7 @@ namespace Web
   MiracleListAPI.MiracleListProxy proxy { get; set; }
   Blazored.LocalStorage.ILocalStorageService localStorage { get; set; }
 
-  public AuthenticationManager(MiracleListAPI.MiracleListProxy proxy, Blazored.LocalStorage.ILocalStorageService localStorage )
+  public AuthenticationManager(MiracleListAPI.MiracleListProxy proxy, Blazored.LocalStorage.ILocalStorageService localStorage)
   {
    this.proxy = proxy;
    this.localStorage = localStorage;
