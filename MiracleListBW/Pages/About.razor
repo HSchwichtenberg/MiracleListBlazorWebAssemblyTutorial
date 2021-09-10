@@ -1,6 +1,6 @@
 ﻿@page "/about"
 
-@inject MiracleListAPI.MiracleListProxy proxy;
+@inject MiracleListAPI.MiracleListProxy proxy
 
 <h3>MiracleList-Tutorial</h3>
 Autor: Dr. Holger Schwichtenberg, <a href="http://www.IT-Visions.de/">www.IT-Visions.de</a>
@@ -19,6 +19,7 @@ Blazor WebAssembly: @Version
 @ServerAppVersion
 <br />
 @ServerFramework
+
 @code {
  public string Version { get; set; }
  public string ServerAppVersion { get; set; }
@@ -30,6 +31,7 @@ Blazor WebAssembly: @Version
  {
   Version = " " + System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
   
+  // WebAPI aufrufen
   var serverData = await proxy.AboutAsync();
   ServerAppVersion = serverData[6];
   ServerFramework = serverData[8];
