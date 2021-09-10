@@ -134,7 +134,7 @@ namespace Web.Pages
    await proxy.DeleteTaskAsync(t.TaskID, am.Token);
    // Liste der Aufgaben neu laden
    await ShowTaskSet(this.category);
-   // aktuelle Aufgabe zur�cksetzen
+   // aktuelle Aufgabe zurücksetzen
    this.task = null;
   }
 
