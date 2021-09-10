@@ -34,6 +34,7 @@ namespace Web
    var l = new LoginInfo() { Username = username, Password = password, ClientID = AuthenticationManager.ClientID };
    try
    {
+    // an Backend senden
     CurrentLoginInfo = await proxy.LoginAsync(l);
     if (String.IsNullOrEmpty(CurrentLoginInfo.Token))
     {
@@ -49,6 +50,7 @@ namespace Web
    {
     Console.WriteLine($"{nameof(AuthenticationManager)}.{ nameof(Login)}: Anmeldefehler: " + ex.Message);
    }
+   // Blazor über Zustandsänderung informieren
    Notify();
    return result;
   }
@@ -86,13 +88,13 @@ namespace Web
   public override async Task<AuthenticationState> GetAuthenticationStateAsync()
   {
    if (this.CurrentLoginInfo != null && !String.IsNullOrEmpty(this.CurrentLoginInfo.Token) && !String.IsNullOrEmpty(proxy.BaseUrl))
-   {
+   { // Benutzer angemeldet
     const string authType = "MiracleList WebAPI Authentication";
     var identity = new ClaimsIdentity(new[]
     {
-    new Claim("Backend", proxy.BaseUrl),
     new Claim(ClaimTypes.Sid, this.CurrentLoginInfo.Token), // use SID claim for token
     new Claim(ClaimTypes.Name, this.CurrentLoginInfo.Username),
+    new Claim("Backend", proxy.BaseUrl),
     }, authType);
 
     var cp = new ClaimsPrincipal(identity);
@@ -101,7 +103,7 @@ namespace Web
     return state;
    }
    else
-   {
+   { // keine Benutzer angemeldet
     Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(GetAuthenticationStateAsync)}: No user!");
     
     // return null wäre nicht ok! hier muss man dieses Konstrukt aufbauen:
