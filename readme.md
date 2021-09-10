@@ -19,7 +19,7 @@ Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verl
 - [Teil 5: Bi-Direktionale Kommunikation und Benachrichtigungen (ca. 19.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Bidirektionale-Kommunikation-und-Benachrichtigungen-5069045.html) - erschienen am 02.03.2021
 
 # Voraussetzungen
-- [Visual Studio 2019 v16.11 oder Visual Studio 2022 Preview 3](https://visualstudio.microsoft.com/de/vs/preview/)
+- [Visual Studio 2022 Preview 3](https://visualstudio.microsoft.com/de/vs/preview/)
 - [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) Preview 7 oder höher
 - Wichtig: Sie benötigen eine eigene [Client-ID für das cloudbasierte MiracleList-Backend](http://miraclelistbackend.azurewebsites.net/clientid)!
 
