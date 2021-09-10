@@ -128,9 +128,9 @@ namespace Web.Pages
   /// </summary>
   public async System.Threading.Tasks.Task RemoveTask(BO.Task t)
   {
-   // R�ckfrage (Browser-Dialog via JS!)
+   // Rückfrage (Browser-Dialog via JS!)
    if (!await js.InvokeAsync<bool>("confirm", "Remove Task #" + t.TaskID + ": " + t.Title + "?")) return;
-   // L�schen via WebAPI-Aufruf
+   // Löschen via WebAPI-Aufruf
    await proxy.DeleteTaskAsync(t.TaskID, am.Token);
    // Liste der Aufgaben neu laden
    await ShowTaskSet(this.category);
@@ -139,9 +139,9 @@ namespace Web.Pages
   }
 
   /// <summary>
-  /// Ereignisbehandlung: Benutzer l�scht Kategorie
+  /// Ereignisbehandlung: Benutzer löscht Kategorie
   /// </summary>
-  /// <param name="c">zu l�schende Kategorie</param>
+  /// <param name="c">zu löschende Kategorie</param>
   public async System.Threading.Tasks.Task RemoveCategory(BO.Category c)
   {
    // R�ckfrage (Browser-Dialog via JS!)
@@ -150,7 +150,7 @@ namespace Web.Pages
    await proxy.DeleteCategoryAsync(c.CategoryID, am.Token);
    // Liste der Kategorien neu laden
    await ShowCategorySet();
-   // aktuelle Category zur�cksetzen
+   // aktuelle Category zurücksetzen
    this.category = null;
   }
  } // end class Index
