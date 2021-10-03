@@ -5,20 +5,21 @@
 <h3>MiracleList-Tutorial</h3>
 Autor: Dr. Holger Schwichtenberg, <a href="http://www.IT-Visions.de/">www.IT-Visions.de</a>
 <br />
-
+Blazor WebAssembly: @Version
+<div style="margin-top:10px">
 <h4>Client</h4>
 @*Beispiel: Direkter Aufruf einer Methode*@
 Application Version @System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()
 <br />
 @*Beispiel: Verweis auf ein Property*@
-Blazor WebAssembly: @Version
-<br />
+Blazor WebAssembly: @Version</div>
 
+<div style="margin-top:10px">
 @*Beispiel: Nutzung einer Information, die asynchron eingeht*@
 <h4>Server</h4>
 @ServerAppVersion
 <br />
-@ServerFramework
+@ServerFramework</div>
 
 @code {
  public string Version { get; set; }
