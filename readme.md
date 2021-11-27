@@ -7,7 +7,7 @@ Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_
 # Status der Beiträge
 - Das Tutorial wurde am 3.9.2020 komplett (alle fünf Teile) bei der Heise Redaktion abgeliefert.
 - Die Redaktion hat den Text in den Folgemonaten sukzessive veröffentlicht.
-- Der Code wurde am 16.8.2021 auf .NET 6 Preview 7 aktualisiert. Der Text im Tutorial auf Heise.de kann aber leider nicht mehr geändert werden :-(
+- Der Code wurde inzwischen auf .NET 6 RTM aktualisiert. Der Text im Tutorial auf Heise.de kann aber leider nicht mehr geändert werden :-(
 
 # Webadressen zu den Beiträgen
 Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verlinkt:
