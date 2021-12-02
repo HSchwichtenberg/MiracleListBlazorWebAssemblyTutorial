@@ -5,35 +5,40 @@
    <h4>Task</h4>
    <form>
     <!--Schaltflächen-->
-    <button type="button" title="Änderungen speichern"
-            @onclick="Save" class="btn btn-success">
+   <button type="button" title="Änderungen speichern"
+           @onclick="Save" class="btn btn-success">
      <span class="glyphicon  glyphicon-floppy-save"></span> <span class="hidden-xs" i18n>Save</span>
     </button>
     <button type="button" title="Änderungen verwerfen" @onclick="Cancel" class="btn btn-warning"><span class="glyphicon glyphicon-remove"></span> <span class="hidden-xs" i18n>Cancel</span></button>
     <!--Titel-->
-    <div class="form-group">
+   <div class="form-group">
      <label for="tasktitle">Titel</label>
      <input id="tasktitle" name="tasktitle" type="text" @bind="Task.Title" required class="form-control" />
     </div>
     <div class="row">
      <!--Wichtigkeit-->
-     <span class="col-xs-3" style="padding-right: 2px">
+    <span class="col-xs-3" style="padding-right: 2px">
       <div class="form-group">
        <label for="taskimportance" i18n>Importance</label>
        <select id="taskimportance" name="taskimportance" @bind="Task.ImportanceNN" class="form-control">
-        <option value="A">A</option>
-        <option value="B">B</option>
-        <option value="C">C</option>
+        @foreach (object s in System.Enum.GetValues(typeof(BO.Importance)))
+        {
+         <option value="@s">@s</option>
+        }
+
+        @*      <option value="A">A</option>
+         <option value="B">B</option>
+         <option value="C">C</option>*@
        </select>
       </div>
      </span>
      <!--Aufwand-->
-     <span class="col-xs-3" style="padding-left: 2px; padding-right: 2px">
+    <span class="col-xs-3" style="padding-left: 2px; padding-right: 2px">
       <label for="taskeffort " i18n>Effort</label>
       <input id="taskeffort" type="number" name="taskeffort" @bind="Task.Effort" class="form-control" />
      </span>
      <!--Fälligkeit-->
-     <span class="col-xs-6" style="padding-left: 2px; ">
+    <span class="col-xs-6" style="padding-left: 2px; ">
       <div class="form-group">
        <label for="taskDue" i18n>Due</label>
        <input id="taskdue" name="taskdue" type="date" @bind="Task.DueNN" class="form-control" />
@@ -41,7 +46,7 @@
      </span>
     </div>  <!--Ende row-->
     <!--Notiz-->
-    <div class="form-group ">
+   <div class="form-group ">
      <label for="tasknote" i18n>Note</label>
      <textarea id="tasknote" name="tasknote " rows="5" @bind="Task.Note" class="form-control "></textarea>
     </div>
