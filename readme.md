@@ -20,7 +20,7 @@ Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verl
 
 # Voraussetzungen
 - [Visual Studio 2022](https://visualstudio.microsoft.com/de/vs/preview/)
-- [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) Preview 7 oder höher
+- [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) 
 - Wichtig: Sie benötigen eine eigene [Client-ID für das cloudbasierte MiracleList-Backend](http://miraclelistbackend.azurewebsites.net/clientid)!
 
 # Quellcodestände
