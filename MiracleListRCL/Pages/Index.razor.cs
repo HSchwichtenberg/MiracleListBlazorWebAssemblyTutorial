@@ -59,7 +59,7 @@ namespace Web.Pages
        .WithUrl(hubURL)
        .Build();
 
-   // --- eingehende Nachricht
+   // --- per ASP.NET Core SignalR eingehende Nachricht: CategoryListUpdate
    hubConnection.On<string>("CategoryListUpdate", async (connectionID) =>
    {
     if (hubConnection.ConnectionId != connectionID)
@@ -71,7 +71,7 @@ namespace Web.Pages
      StateHasChanged();
     }
    });
-   // --- eingehende Nachricht
+   // --- er ASP.NET Core SignalR eingehende Nachricht: TaskListUpdate
    hubConnection.On<string, int>("TaskListUpdate", async (connectionID, categoryID) =>
    {
    if (hubConnection.ConnectionId != connectionID)
