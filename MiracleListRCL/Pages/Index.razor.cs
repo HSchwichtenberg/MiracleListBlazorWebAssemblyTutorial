@@ -79,8 +79,11 @@ namespace Web.Pages
     string s = $"Aufgaben der Kategorie #{category.CategoryID}: \"{this.category.Name}\" wurden auf einem anderen System geändert.";
     Console.WriteLine(s);
     toastService.ShowInfo(s, "Aufgaben geändert");
-    if (categoryID == this.category.CategoryID) await ShowTaskSet(this.category);
-    StateHasChanged();
+     if (categoryID == this.category.CategoryID)
+     {
+      await ShowTaskSet(this.category);
+      StateHasChanged();
+     }
     }
    });
 
