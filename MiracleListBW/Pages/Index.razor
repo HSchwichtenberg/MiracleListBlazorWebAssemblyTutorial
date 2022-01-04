@@ -6,7 +6,7 @@
  <!-- ### Spalte 1: Kategorien-->
  @if (categorySet != null)
  {
-  <div class="WLPanel col-xs-4 col-sm-4 col-md-3 col-lg-2">
+  <div class="MLPanel col-xs-4 col-sm-4 col-md-3 col-lg-2">
    <!-- ---------- Überschrift Spalte 1-->
    <h4> @(categorySet.Count()) <span>Categories</span></h4>
    <!-- ---------- neue Kategorie eingeben-->
@@ -24,7 +24,7 @@
   </div>
 
   <!-- ### Spalte 2: Aufgabenliste-->
-  <div class="WLPanel col-xs-8 col-sm-8 col-md-9 col-lg-10">
+  <div class="MLPanel col-xs-8 col-sm-8 col-md-9 col-lg-10">
    <!-- ---------- Überschrift Spalte 2-->
    <h4 id="TaskHeadline">@(taskSet == null ? 0 : taskSet.Count()) <span>Tasks in </span><i>@category?.Name</i></h4>
    <!-- ---------- neue Aufgaben eingeben-->
