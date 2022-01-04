@@ -7,7 +7,7 @@
  <!-- ### Spalte 1: Kategorien-->
  @if (categorySet != null)
  {
-  <div class="WLPanel col-xs-4 col-sm-4 col-md-3 col-lg-2 @(this.task!=null ? "hidden-sm hidden-xs": ""  )">
+  <div class="MLPanel col-xs-4 col-sm-4 col-md-3 col-lg-2 @(this.task!=null ? "hidden-sm hidden-xs": ""  )">
    <!-- ---------- Überschrift Spalte 1-->
    <h4> @(categorySet.Count()) <span>Categories</span></h4>
    <!-- ---------- neue Kategorie eingeben-->
@@ -26,7 +26,7 @@
   </div>
 
   <!-- ### Spalte 2: Aufgabenliste-->
-  <div class="WLPanel @(this.task==null ? "col-xs-8 col-sm-8 col-md-9 col-lg-10 ": "hidden-xs col-sm-6 col-md-5 col-lg-6"  )">
+  <div class="MLPanel @(this.task==null ? "col-xs-8 col-sm-8 col-md-9 col-lg-10 ": "hidden-xs col-sm-6 col-md-5 col-lg-6"  )">
    <!-- ---------- Überschrift Spalte 2-->
    <h4 id="TaskHeadline">@(taskSet == null ? 0 : taskSet.Count()) <span>Tasks in</span> @category?.Name</h4>
    <!-- ---------- neue Aufgaben eingeben-->
@@ -64,7 +64,7 @@
  <!-- ### Spalte 3: Aufgabendetails-->
  @if (task != null)
  {
-  <div class="WLPanel col-xs-12 col-sm-6 col-md-4 col-lg-4">
+  <div class="MLPanel col-xs-12 col-sm-6 col-md-4 col-lg-4">
    <TaskEdit Task="@task" TaskHasChanged="@ReloadTasks"></TaskEdit>
   </div>
  }
