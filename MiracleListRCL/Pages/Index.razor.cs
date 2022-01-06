@@ -104,6 +104,7 @@ namespace Web.Pages
   {
    this.category = c;
    this.taskSet = await proxy.TaskSetAsync(c.CategoryID, am.Token);
+   this.task = null;
   }
 
   public void ShowTaskDetail(BO.Task t)
