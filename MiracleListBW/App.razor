@@ -37,7 +37,7 @@
  private async Task OnNavigateAsync(NavigationContext args)
  {
   Console.WriteLine("OnNavigateAsync: " + args.Path);
-  if (args.Path.EndsWith("main") || args.Path.EndsWith("about"))
+  if (args.Path.ToLower().EndsWith("main") || args.Path.ToLower().EndsWith("about"))
   {
    Console.WriteLine("Lazy Loading MiracleListRCL.dll...");
    var assemblies = await LazyAssemblyLoader.LoadAssembliesAsync(new string[] { "MiracleListRCL.dll" });
