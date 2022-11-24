@@ -25,12 +25,12 @@ Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verl
 
 # Quellcodestände
 Die Quellcodestände vor/nach den einzelnen Tutorial-Teilen finden Sie in den Branches
-- [Ausgangszustand / Beginn Teil 1][0]
-- [Stand nach Teil 1 / Beginn Teil 2][1]
-- [Stand nach Teil 2 / Beginn Teil 3][2]
-- [Stand nach Teil 3 / Beginn Teil 4][3]
-- [Stand nach Teil 4 / Beginn Teil 5][4]
-- [Stand nach Teil 5][5]
+- v0.0.x [Ausgangszustand / Beginn Teil 1][0]
+- v0.1.x [Stand nach Teil 1 / Beginn Teil 2][1]
+- v0.2.x [Stand nach Teil 2 / Beginn Teil 3][2]
+- v0.3.x [Stand nach Teil 3 / Beginn Teil 4][3]
+- v0.4.x [Stand nach Teil 4 / Beginn Teil 5][4]
+- v0.5.x [Stand nach Teil 5][5]
 
 [0]: https://github.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/tree/Ausgangszustand
 [1]: https://github.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/tree/EndeTeil1

@@ -21,6 +21,7 @@ Blazor WebAssembly: @Version
  public string Version { get; set; }
  public string ServerAppVersion { get; set; }
  public string ServerFramework { get; set; }
+
  /// <summary>
  /// Lebenszyklusereignis: Komponente wird initialisiert
  /// </summary>
@@ -31,6 +32,6 @@ Blazor WebAssembly: @Version
   ServerAppVersion = serverData[6];
   ServerFramework = serverData[8];
 
-  toastService.ShowSuccess("Test", "Test");
+  toastService.ShowSuccess("Herzlich Willkommen bei MiracleList!","About-Seite");
  }
 }
