@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net7.0</TargetFramework>
     <RootNamespace>Web</RootNamespace>
   </PropertyGroup>
 
@@ -18,7 +18,7 @@
 
 
   <ItemGroup>
-     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.0" />
+     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.*" />
   </ItemGroup>
 
 
