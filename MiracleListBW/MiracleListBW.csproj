@@ -2,25 +2,24 @@
 
  <!--notwendige Frameworkeinstellungen-->
  <PropertyGroup>
-  <TargetFramework>net6.0</TargetFramework>
+  <TargetFramework>net7.0</TargetFramework>
   <UseBlazorWebAssembly>true</UseBlazorWebAssembly>
  </PropertyGroup>
 
  <!--Versionsinformationen-->
  <PropertyGroup>
-  <Version>0.0.2.0</Version>
-  <AssemblyVersion>0.0.2.0</AssemblyVersion>
-  <FileVersion>0.0.2.0</FileVersion>
+  <Version>0.1.3.0</Version>
+  <AssemblyVersion>0.1.3.0</AssemblyVersion>
+  <FileVersion>0.1.3.0</FileVersion>
  </PropertyGroup>
 
  <!--optionale Anwendungseinstellungen-->
  <PropertyGroup>
   <Description>Blazor WebAssembly-Version des MiracleList Web Frontends</Description>
-  <Copyright>Dr. Holger Schwichtenberg, www.IT-Visions.de 2018-2020</Copyright>
+  <Copyright>Dr. Holger Schwichtenberg, www.IT-Visions.de 2018-2022</Copyright>
   <Authors>Dr. Holger Schwichtenberg, www.IT-Visions.de</Authors>
   <Company>www.IT-Visions.de</Company>
   <Product>MiracleList</Product>
-  <Version>0.1.2.0</Version>
   <RootNamespace>Web</RootNamespace>
   <StartupObject>Web.Program</StartupObject>
  </PropertyGroup>
@@ -32,9 +31,9 @@
 
  <ItemGroup>
   <!--Standardreferenzen für BW-->
-  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.0" />
-  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.0" PrivateAssets="all" />
-  <PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
+  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.*" />
+  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.*" PrivateAssets="all" />
+  <PackageReference Include="System.Net.Http.Json" Version="7.0.*" />
  </ItemGroup>
 
  <ItemGroup>
