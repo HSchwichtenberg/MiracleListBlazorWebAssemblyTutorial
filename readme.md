@@ -2,9 +2,7 @@
 
 Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) anhand des praxisnahen Fallbeispiels [Single-Page-Webanwendung "MiracleList"](https://www.miraclelist.net/). 
 
-<a href="https://www.miraclelist.net">
-![MiracleList Logo](https://raw.githubusercontent.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/Master/MiracleListBW/wwwroot/img/MiracleListLogo.jpg "MiracleList Logo")
-</a>
+[[/wwwroot/img/MiracleListLogo.jpg|"MiracleList Logo"]]
 
 # Status der Beiträge
 - Das Tutorial wurde am 3.9.2020 komplett (alle fünf Teile) bei der Heise Redaktion abgeliefert.
