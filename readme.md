@@ -1,13 +1,15 @@
 # Blazor WebAssembly Tutorial für Heise Developer
 
-Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) anhand der [Single-Page-Webanwendung "MiracleList"](http://miraclelist-bw.azurewebsites.net/). Dieses Tuorial ist zwischen Oktober 2020 und März 2021 bei [www.heise.de/developer](https://www.heise.de/developer) erschienen.
+Schrittweiser Einstieg in [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) anhand des praxisnahen Fallbeispiels [Single-Page-Webanwendung "MiracleList"](https://www.miraclelist.net/). 
 
+<a href="https://www.miraclelist.net">
 ![MiracleList Logo](https://raw.githubusercontent.com/HSchwichtenberg/MiracleListBlazorWebAssemblyTutorial/Master/MiracleListBW/wwwroot/img/MiracleListLogo.jpg "MiracleList Logo")
+</a>
 
 # Status der Beiträge
 - Das Tutorial wurde am 3.9.2020 komplett (alle fünf Teile) bei der Heise Redaktion abgeliefert.
-- Die Redaktion hat den Text in den Folgemonaten sukzessive veröffentlicht.
-- Der Code wurde inzwischen auf .NET 6 RTM aktualisiert. Der Text im Tutorial auf Heise.de kann aber leider nicht mehr geändert werden :-(
+- Die Redaktion hat den Text in den Folgemonaten sukzessive veröffentlicht. Das Tutorial ist zwischen Oktober 2020 und März 2021 bei [www.heise.de/developer](https://www.heise.de/developer) erschienen.
+- Der Code wurde inzwischen auf .NET 7.0 aktualisiert. Der Text im Tutorial auf Heise.de kann aber leider nicht mehr geändert werden :-(
 
 # Webadressen zu den Beiträgen
 Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verlinkt:
@@ -19,8 +21,8 @@ Sobald die einzelnen Teile des Tutorials erschienen sind, werden diese hier verl
 - [Teil 5: Bi-Direktionale Kommunikation und Benachrichtigungen (ca. 19.000 Zeichen)](https://www.heise.de/ratgeber/Blazor-WebAssembly-Bidirektionale-Kommunikation-und-Benachrichtigungen-5069045.html) - erschienen am 02.03.2021
 
 # Voraussetzungen
-- [Visual Studio 2022](https://visualstudio.microsoft.com/de/vs/preview/)
-- [.NET 6.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) 
+- [Visual Studio 2022 ab Version 17.4](https://visualstudio.microsoft.com/de/vs/preview/)
+- [.NET 7.0 SDK](https://dotnet.microsoft.com/download/dotnet/6.0) 
 - Wichtig: Sie benötigen eine eigene [Client-ID für das cloudbasierte MiracleList-Backend](http://miraclelistbackend.azurewebsites.net/clientid)!
 
 # Quellcodestände
@@ -46,5 +48,5 @@ Hinweis: Der Master-Branch enthält gegenüber bei Heise veröffentlichten Tutor
 # Webadressen
 
 - [Blazor WebAssembly](https://dotnet-lexikon.de/Blazor_WebAssembly/lex/9768.aspx) im .NET-Lexikon 
-- [Fertige Lösung "MiracleList"](http://miraclelist-bw.azurewebsites.net/) auf Basis Blazor WebAssembly 
-- [Cloudbasiertes MiracleList-Backend](http://miraclelistbackend.azurewebsites.net/clientid) basiert auf .NET Core 3.1  --> [Quellcode auf GitHub](https://github.com/HSchwichtenberg/MiracleListBackend)
+- [Fertige Lösung "MiracleList"](http://miraclelist-bw.azurewebsites.net/) auf Basis Blazor WebAssembly in der Aure-Cloud
+- [Cloudbasiertes MiracleList-Backend](http://miraclelistbackend.azurewebsites.net/clientid) basiert auf ASP.NET Core  --> [Quellcode auf GitHub](https://github.com/HSchwichtenberg/MiracleListBackend)
