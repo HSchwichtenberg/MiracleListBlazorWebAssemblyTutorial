@@ -124,7 +124,7 @@ namespace Web.Pages
   }
 
   /// <summary>
-  /// Ereignisbehandlung: Benutzer l�scht Aufgabe
+  /// Ereignisbehandlung: Benutzer löscht Aufgabe
   /// </summary>
   public async System.Threading.Tasks.Task RemoveTask(BO.Task t)
   {
