@@ -144,9 +144,9 @@ namespace Web.Pages
   /// <param name="c">zu löschende Kategorie</param>
   public async System.Threading.Tasks.Task RemoveCategory(BO.Category c)
   {
-   // R�ckfrage (Browser-Dialog via JS!)
+   // Rückfrage (Browser-Dialog via JS!)
    if (!await js.InvokeAsync<bool>("confirm", "Remove Category #" + c.CategoryID + ": " + c.Name + "?")) return;
-   // L�schen via WebAPI-Aufruf
+   // Löschen via WebAPI-Aufruf
    await proxy.DeleteCategoryAsync(c.CategoryID, am.Token);
    // Liste der Kategorien neu laden
    await ShowCategorySet();
