@@ -49,7 +49,7 @@ public partial class Index
   //if (!user.Identity.IsAuthenticated) { this.NavigationManager.NavigateTo("/"); return; }
   await ShowCategorySet();
 
-  var hubURL = new Uri(new Uri("http://localhost:8889/"), "MLHub");
+  var hubURL = new Uri(new Uri(proxy.BaseUrl), "MLHub");
   Console.WriteLine("SignalR: Connect to " + hubURL.ToString());
   hubConnection = new HubConnectionBuilder()
      .WithUrl(hubURL)
