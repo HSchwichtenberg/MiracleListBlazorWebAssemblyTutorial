@@ -1,8 +1,8 @@
-﻿using System.Threading.Tasks;
-using System;
+﻿using Microsoft.AspNetCore.Components.Authorization; // NEU in Teil 3
 using MiracleListAPI;
+using System;
 using System.Security.Claims;   // NEU in Teil 3
-using Microsoft.AspNetCore.Components.Authorization; // NEU in Teil 3
+using System.Threading.Tasks;
 
 namespace Web
 {
@@ -43,12 +43,12 @@ namespace Web
     else
     {
      result = true;
-     Console.WriteLine($"{nameof(AuthenticationManager)}.{ nameof(Login)}: Anmeldung erfolgreich: " + this.CurrentLoginInfo.Username);
+     Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(Login)}: Anmeldung erfolgreich: " + this.CurrentLoginInfo.Username);
     }
    }
    catch (Exception ex)
    {
-    Console.WriteLine($"{nameof(AuthenticationManager)}.{ nameof(Login)}: Anmeldefehler: " + ex.Message);
+    Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(Login)}: Anmeldefehler: " + ex.Message);
    }
    // Blazor über Zustandsänderung informieren
    Notify();
@@ -92,9 +92,9 @@ namespace Web
     const string authType = "MiracleList WebAPI Authentication";
     var identity = new ClaimsIdentity(new[]
     {
-    new Claim(ClaimTypes.Sid, this.CurrentLoginInfo.Token), // use SID claim for token
-    new Claim(ClaimTypes.Name, this.CurrentLoginInfo.Username),
-    new Claim("Backend", proxy.BaseUrl),
+    new Claim(ClaimTypes.Name, this.CurrentLoginInfo.Username), // PFLICHT!
+    new Claim(ClaimTypes.Sid, this.CurrentLoginInfo.Token), // optional: use SID claim for token
+    new Claim("Backend", proxy.BaseUrl),// optional
     }, authType);
 
     var cp = new ClaimsPrincipal(identity);
@@ -105,7 +105,7 @@ namespace Web
    else
    { // kein Benutzer angemeldet
     Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(GetAuthenticationStateAsync)}: No user!");
-    
+
     // return null wäre nicht ok! hier muss man dieses Konstrukt aufbauen:
     var state = new AuthenticationState(new ClaimsPrincipal(new ClaimsIdentity()));
     return state;
