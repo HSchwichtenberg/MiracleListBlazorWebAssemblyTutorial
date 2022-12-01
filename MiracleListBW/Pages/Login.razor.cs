@@ -30,6 +30,11 @@ namespace Web
    }
   }
 
+  public void Datengebunden()
+  {
+
+  }
+
   /// <summary>
   /// Reaktion auf Benutzeraktion
   /// </summary>

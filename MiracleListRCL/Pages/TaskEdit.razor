@@ -1,4 +1,14 @@
-﻿@if (Task != null)
+﻿@page "/taskedit/{ID}"
+
+@code
+{
+ [Parameter]
+ public int ID { get; set; }
+
+}
+
+
+@if (Task != null)
 {
  <div style="padding: 0">
   <div>
