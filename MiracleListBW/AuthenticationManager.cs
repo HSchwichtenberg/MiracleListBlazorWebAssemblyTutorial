@@ -103,7 +103,7 @@ namespace Web
     return state;
    }
    else
-   { // keine Benutzer angemeldet
+   { // kein Benutzer angemeldet
     Console.WriteLine($"{nameof(AuthenticationManager)}.{nameof(GetAuthenticationStateAsync)}: No user!");
     
     // return null wäre nicht ok! hier muss man dieses Konstrukt aufbauen:
