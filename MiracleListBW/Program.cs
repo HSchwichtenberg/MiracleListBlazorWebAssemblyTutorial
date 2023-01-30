@@ -1,6 +1,4 @@
-﻿
-using Blazored.LocalStorage;
-using Blazored.Toast;
+﻿using Blazored.LocalStorage;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -44,10 +42,6 @@ namespace Web
 
    #region Teil 4
    services.AddBlazoredLocalStorage();
-   #endregion
-
-   #region Teil 5
-   services.AddBlazoredToast();
    #endregion
   }
  }

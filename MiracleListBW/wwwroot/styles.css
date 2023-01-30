@@ -16,25 +16,8 @@ body {
     }
 } */
 
-.WLPanel {
-    padding-right: 2px;
-    padding-left: 2px;
-}
-
 .loginstatus {
-    margin-top: 20px;
-}
-
-.MLcheckbox {
- -moz-transform: scale(2);
- width: 25px;
- height: 25px;
- padding: 10px;
- display: inline;
-}
-
-.MLselected {
- background-color: #E0EEFA !important;
+ margin-top: 20px;
 }
 
 .scroll {
