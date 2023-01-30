@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>Web</RootNamespace>
-  </PropertyGroup>
+ <PropertyGroup>
+  <TargetFramework>net7.0</TargetFramework>
+  <RootNamespace>Web</RootNamespace>
+ </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Pages\Index.razor.css" />
@@ -17,16 +17,18 @@
   </ItemGroup>
 
 
-  <ItemGroup>
-     <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="5.0.0" />
-  </ItemGroup>
+ <ItemGroup>
+  <PackageReference Include="Blazored.Toast" Version="3.2.2" />
+  <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="7.0.*" />
+  <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.*" />
+  <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.*" />
+ </ItemGroup>
 
-
-  <ItemGroup>
-    <ProjectReference Include="..\BO\BO.csproj" />
-    <ProjectReference Include="..\MiracleListAPI_Proxy\MiracleListAPI_Proxy.csproj" />
-    <ProjectReference Include="..\MiracleListUtil\MiracleListUtil.csproj" />
-  </ItemGroup>
+ <ItemGroup>
+  <ProjectReference Include="..\BO\BO.csproj" />
+  <ProjectReference Include="..\MiracleListAPI_Proxy\MiracleListAPI_Proxy.csproj" />
+  <ProjectReference Include="..\MiracleListUtil\MiracleListUtil.csproj" />
+ </ItemGroup>
 
 
   <ItemGroup>

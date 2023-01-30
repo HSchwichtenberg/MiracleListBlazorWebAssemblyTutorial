@@ -6,7 +6,7 @@ Autor: Dr. Holger Schwichtenberg, <a href="http://www.IT-Visions.de/">www.IT-Vis
 <br />
 <h4>Client</h4>
 @*Beispiel: Direkter Aufruf einer Methode*@
-Application Version @System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()
+Application Version @System.Reflection.Assembly.GetEntryAssembly().GetName().Version.ToString()
 <br />
 @*Beispiel: Verweis auf ein Property*@
 Blazor WebAssembly: @Version
@@ -17,9 +17,11 @@ Blazor WebAssembly: @Version
 <br />
 @ServerFramework
 @code {
+ [Inject] Blazored.Toast.Services.IToastService toastService { get; set; }
  public string Version { get; set; }
  public string ServerAppVersion { get; set; }
  public string ServerFramework { get; set; }
+
  /// <summary>
  /// Lebenszyklusereignis: Komponente wird initialisiert
  /// </summary>
@@ -29,5 +31,7 @@ Blazor WebAssembly: @Version
   var serverData = await proxy.AboutAsync();
   ServerAppVersion = serverData[6];
   ServerFramework = serverData[8];
+
+  toastService.ShowSuccess("Herzlich Willkommen bei MiracleList!","About-Seite");
  }
 }
