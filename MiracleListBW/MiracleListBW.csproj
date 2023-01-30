@@ -2,26 +2,29 @@
 
  <!--notwendige Frameworkeinstellungen-->
  <PropertyGroup>
-  <TargetFramework>net5.0</TargetFramework>
+  <TargetFramework>net7.0</TargetFramework>
  </PropertyGroup>
 
+ <!--Versionsinformationen-->
+ <PropertyGroup>
+  <Version>0.6.3.0</Version>
+ </PropertyGroup>
+	
  <!--optionale Anwendungseinstellungen-->
  <PropertyGroup>
   <Description>Blazor WebAssembly-Version des MiracleList Web Frontends</Description>
-  <Copyright>Dr. Holger Schwichtenberg, www.IT-Visions.de 2018-2020</Copyright>
+  <Copyright>Dr. Holger Schwichtenberg, www.IT-Visions.de 2018-2021</Copyright>
   <Authors>Dr. Holger Schwichtenberg, www.IT-Visions.de</Authors>
   <Company>www.IT-Visions.de</Company>
   <Product>MiracleList</Product>
-  <Version>0.4.1.0</Version>
   <RootNamespace>Web</RootNamespace>
   <StartupObject>Web.Program</StartupObject>
-  <AssemblyVersion>0.4.1.0</AssemblyVersion>
-  <FileVersion>0.4.1.0</FileVersion>
  </PropertyGroup>
  <ItemGroup>
    <None Remove="Pages\Login.razor.css" />
  </ItemGroup>
 
+ <!--Ausnahmen einer DLL aus dem Bundle für Lazy Loading-->
  <ItemGroup>
   <BlazorWebAssemblyLazyLoad Include="MiracleListRCL.dll" />
  </ItemGroup>
@@ -39,10 +42,18 @@
 
  <ItemGroup>
   <!--Standardreferenzen für BW-->
-  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.0" />
-  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.0" PrivateAssets="all" />
-  <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
-  <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="5.0.0" />
+  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="7.0.*" />
+  <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="7.0.*" PrivateAssets="all" />
+  <PackageReference Include="System.Net.Http.Json" Version="7.0.*" />
+  <PackageReference Include="Microsoft.AspNetCore.Components.Authorization" Version="7.0.*" />
+
+ </ItemGroup>
+
+ <ItemGroup>
+  <!--Zusatzpakete-->
+  <PackageReference Include="Blazored.LocalStorage" Version="4.3.0" />
+  <PackageReference Include="Blazored.Toast" Version="3.2.2" />
+  <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.*" />
  </ItemGroup>
 
  <!--Projektreferenzen-->

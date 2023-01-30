@@ -10,6 +10,7 @@ namespace Web.Pages
  public partial class TaskEdit
  {
   [Parameter] // zu bearbeitende Aufgabe
+  [EditorRequired]
   public BO.Task Task { get; set; }
 
   [Parameter] // Ereignis, wenn Aufgabe sich geändert hat
@@ -21,14 +22,14 @@ namespace Web.Pages
   [Inject] AuthenticationStateProvider asp { get; set; } = null;
   AuthenticationManager am { get { return (asp as AuthenticationManager); } }
 
-  protected override async System.Threading.Tasks.Task OnInitializedAsync()
-  {
-  }
+  //protected override async System.Threading.Tasks.Task OnInitializedAsync()
+  //{
+  //}
 
-  // wenn Parameter gesetzt wird
-  protected async override void OnParametersSet()
-  {
-  }
+  //// wenn Parameter gesetzt wird
+  //protected async override void OnParametersSet()
+  //{
+  //}
 
   protected async void Save()
   {
@@ -38,7 +39,7 @@ namespace Web.Pages
 
   protected async void Cancel()
   {
-   await TaskHasChanged.InvokeAsync(true); 
+   await TaskHasChanged.InvokeAsync(true);
   }
 
  } // end class TaskEdit

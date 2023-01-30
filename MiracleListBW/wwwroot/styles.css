@@ -10,11 +10,16 @@ body {
 
 
 /* @media screen and (max-width: 767px) {
-    .WLPanel {
+    .MLPanel {
         padding-left: 2px;
         padding-right: 2px;
     }
 } */
+
+.MLPanel {
+    padding-right: 2px;
+    padding-left: 2px;
+}
 
 .loginstatus {
  margin-top: 20px;

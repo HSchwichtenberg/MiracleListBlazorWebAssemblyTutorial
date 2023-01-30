@@ -17,6 +17,12 @@
  <link href="manifest.json" rel="manifest" />
  <link rel="apple-touch-icon" sizes="512x512" href="MiracleListIcon-512.png" />
 
+ <!--Für Blazored.Toast (Teil 5)-->
+ <link href="_content/Blazored.Toast/blazored-toast.min.css" rel="stylesheet" />
+
+ <!--Für CSS-Isolation-Styles aus Hauptprojekt und RCL-->
+ <link href="MiracleListBW.styles.css" rel="stylesheet" />
+
  <style>
   background: rgba(255, 221, 134, 1) !important;
  </style>
@@ -43,6 +49,7 @@
   </div>
   <!-- Standard-JS-Lib von Microsoft für Blazor WebAssembly -->
   <script src="_framework/blazor.webassembly.js" autostart="true"></script>
+  <script src="/_content/MiracleListRCL/JSUtil.js"></script>
   <!--Für PWA-->
   <script>navigator.serviceWorker.register('service-worker.js');</script>
  </div>
