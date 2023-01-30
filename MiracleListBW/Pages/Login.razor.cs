@@ -18,12 +18,12 @@ namespace Web
 
   protected override async System.Threading.Tasks.Task OnInitializedAsync()
   {
-   // Reaktion auf die URL /logout
+   // Reaktion auf diese URL
    if (this.NavigationManager.Uri.ToLower().Contains("/logout"))
    {
     await ((AuthenticationManager)asp).Logout(); return;
    }
-   // Direkt zur Hauptseite, falls ein Token im Local Storage ist
+
    if (await (asp as AuthenticationManager).CheckLocalTokenValid())
    {
     this.NavigationManager.NavigateTo("/main");
